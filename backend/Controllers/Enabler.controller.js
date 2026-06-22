@@ -20,6 +20,7 @@ async function submitMerchant(req, res, next) {
             gstNumber,
             panNumber,
             aadharNumber,
+            shopEstablishmentNumber,
             upiVpa,
             upiMerchantName,
             documents
@@ -77,6 +78,7 @@ async function submitMerchant(req, res, next) {
             gstNumber,
             panNumber,
             aadharNumber: aadharNumber,
+            shopEstablishmentNumber,
             upi: {
                 connected: !!upiVpa,
                 vpa: upiVpa || '',

@@ -29,13 +29,14 @@ class IndustryItem {
 const List<IndustryItem> kIndustries = [
   IndustryItem(name: 'Food & Restaurant', icon: Icons.restaurant_rounded, color: Color(0xFFE15B4D)),
   IndustryItem(name: 'Groceries', icon: Icons.shopping_basket_rounded, color: Color(0xFF57CA8C)),
-  IndustryItem(name: 'AI & ML', icon: Icons.psychology_rounded, color: Color(0xFF7D50F0)),
-  IndustryItem(name: 'Automotive', icon: Icons.directions_car_filled_rounded, color: Color(0xFF4A90E2)),
-  IndustryItem(name: 'Education', icon: Icons.school_rounded, color: Color(0xFFF39C12)),
-  IndustryItem(name: 'Banking', icon: Icons.account_balance_rounded, color: Color(0xFF34495E)),
-  IndustryItem(name: 'Finance', icon: Icons.payments_rounded, color: Color(0xFF2ECC71)),
-  IndustryItem(name: 'Travel', icon: Icons.flight_takeoff_rounded, color: Color(0xFF1ABC9C)),
-  IndustryItem(name: 'Fashion', icon: Icons.checkroom_rounded, color: Color(0xFFE91E63)),
+  IndustryItem(name: 'Computer Institute', icon: Icons.computer_rounded, color: Color(0xFF7D50F0)),
+  IndustryItem(name: 'Healthcare & Utilities', icon: Icons.medical_services_rounded, color: Color(0xFFE91E63)),
+  IndustryItem(name: 'Hotel', icon: Icons.hotel_rounded, color: Color(0xFF4A90E2)),
+  IndustryItem(name: 'Real Estate', icon: Icons.location_city_rounded, color: Color(0xFFF39C12)),
+  IndustryItem(name: 'Automotive', icon: Icons.directions_car_filled_rounded, color: Color(0xFF34495E)),
+  IndustryItem(name: 'Education', icon: Icons.school_rounded, color: Color(0xFF1ABC9C)),
+  IndustryItem(name: 'Travel', icon: Icons.flight_takeoff_rounded, color: Color(0xFF2ECC71)),
+  IndustryItem(name: 'Fashion', icon: Icons.checkroom_rounded, color: Color(0xFFD81B60)),
   IndustryItem(name: 'Govt Sector', icon: Icons.domain_rounded, color: Color(0xFF607D8B)),
 ];
 
@@ -1236,7 +1237,7 @@ class _CustomerHomeScreenState extends ConsumerState<CustomerHomeScreen> {
                           crossAxisCount: 2,
                           mainAxisSpacing: 16,
                           crossAxisSpacing: 16,
-                          childAspectRatio: 1.1, // More height for text and larger icons
+                          childAspectRatio: 1.0, // Increased height to prevent text overflows
                         ),
                         delegate: SliverChildBuilderDelegate(
                           (context, index) {
@@ -1777,6 +1778,17 @@ class _IndustryCardState extends State<_IndustryCard> {
             onTapUp: _onTapUp,
             onTapCancel: _onTapCancel,
             onTap: () {
+              final isComingSoon = widget.industry.name != 'Food & Restaurant' && widget.industry.name != 'Groceries';
+              if (isComingSoon) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('${widget.industry.name} is coming soon!'),
+                    backgroundColor: Colors.orange.shade800,
+                    duration: const Duration(seconds: 2),
+                  ),
+                );
+                return;
+              }
               context.push('/customer/industry', extra: {
                 'name': widget.industry.name,
                 'color': widget.industry.color,
@@ -1813,13 +1825,13 @@ class _IndustryCardState extends State<_IndustryCard> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(16.0), // Reduced padding
+                      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            padding: const EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
                               color: widget.industry.color.withOpacity(0.12),
                               shape: BoxShape.circle,
@@ -1827,7 +1839,7 @@ class _IndustryCardState extends State<_IndustryCard> {
                             child: Icon(
                               widget.industry.icon,
                               color: widget.industry.color,
-                              size: 38,
+                              size: 32,
                             ),
                           ),
                           Column(
@@ -1837,18 +1849,20 @@ class _IndustryCardState extends State<_IndustryCard> {
                                 widget.industry.name,
                                 style: TextStyle(
                                   fontWeight: FontWeight.w900,
-                                  fontSize: 17,
+                                  fontSize: 15,
                                   letterSpacing: -0.3,
                                   color: Theme.of(context).brightness == Brightness.dark ? Colors.white : AppTheme.ultraBlack,
                                 ),
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                'Explore now',
+                                (widget.industry.name != 'Food & Restaurant' && widget.industry.name != 'Groceries') ? 'Coming Soon' : 'Explore now',
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: Theme.of(context).brightness == Brightness.dark ? Colors.white70 : Colors.grey.shade600,
-                                  fontWeight: FontWeight.w600,
+                                  color: (widget.industry.name != 'Food & Restaurant' && widget.industry.name != 'Groceries')
+                                      ? (Theme.of(context).brightness == Brightness.dark ? Colors.orange.shade300 : Colors.orange.shade800)
+                                      : (Theme.of(context).brightness == Brightness.dark ? Colors.white70 : Colors.grey.shade600),
+                                  fontWeight: FontWeight.w800,
                                 ),
                               ),
                             ],
@@ -1928,6 +1942,17 @@ class _CategoryChips extends ConsumerWidget {
         padding: const EdgeInsets.only(right: 8),
         child: GestureDetector(
           onTap: () {
+            final isComingSoon = name != 'All' && name != 'Food & Restaurant' && name != 'Groceries';
+            if (isComingSoon) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('$name is coming soon!'),
+                  backgroundColor: Colors.orange.shade800,
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+              return;
+            }
             ref.read(preferencesProvider.notifier).updateCategory(name);
           },
           child: Container(
@@ -2002,6 +2027,17 @@ class _CategoryChips extends ConsumerWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         onSelected: (val) {
           if (val) {
+            final isComingSoon = name != 'All' && name != 'Food & Restaurant' && name != 'Groceries';
+            if (isComingSoon) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('$name is coming soon!'),
+                  backgroundColor: Colors.orange.shade800,
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+              return;
+            }
             ref.read(preferencesProvider.notifier).updateCategory(name);
           }
         },

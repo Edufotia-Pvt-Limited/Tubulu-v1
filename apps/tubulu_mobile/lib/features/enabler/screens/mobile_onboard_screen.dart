@@ -44,6 +44,7 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
   final _gstController = TextEditingController();
   final _panController = TextEditingController();
   final _aadharController = TextEditingController();
+  final _shopEstablishmentController = TextEditingController();
 
   final _bankAccountController = TextEditingController();
   final _ifscController = TextEditingController();
@@ -64,6 +65,7 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
   XFile? _gstImage;
   XFile? _panImage;
   XFile? _aadharImage;
+  XFile? _shopEstablishmentImage;
   XFile? _qrCodeImage;
 
   final ImagePicker _picker = ImagePicker();
@@ -88,6 +90,7 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
     _gstController.dispose();
     _panController.dispose();
     _aadharController.dispose();
+    _shopEstablishmentController.dispose();
     _bankAccountController.dispose();
     _ifscController.dispose();
     _upiVpaController.dispose();
@@ -127,6 +130,7 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
       'gst': _gstController.text,
       'pan': _panController.text,
       'aadhar': _aadharController.text,
+      'shopEstablishment': _shopEstablishmentController.text,
       'bankAccount': _bankAccountController.text,
       'ifsc': _ifscController.text,
       'upiVpa': _upiVpaController.text,
@@ -134,6 +138,7 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
       'gstImagePath': _gstImage?.path,
       'panImagePath': _panImage?.path,
       'aadharImagePath': _aadharImage?.path,
+      'shopEstablishmentImagePath': _shopEstablishmentImage?.path,
       'qrCodeImagePath': _qrCodeImage?.path,
     };
     final userId = ref.read(authProvider).userId ?? 'anonymous';
@@ -165,6 +170,7 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
           _gstController.text = draft['gst'] ?? '';
           _panController.text = draft['pan'] ?? '';
           _aadharController.text = draft['aadhar'] ?? '';
+          _shopEstablishmentController.text = draft['shopEstablishment'] ?? '';
           _bankAccountController.text = draft['bankAccount'] ?? '';
           _ifscController.text = draft['ifsc'] ?? '';
           _upiVpaController.text = draft['upiVpa'] ?? '';
@@ -173,6 +179,7 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
           if (draft['gstImagePath'] != null) _gstImage = XFile(draft['gstImagePath']);
           if (draft['panImagePath'] != null) _panImage = XFile(draft['panImagePath']);
           if (draft['aadharImagePath'] != null) _aadharImage = XFile(draft['aadharImagePath']);
+          if (draft['shopEstablishmentImagePath'] != null) _shopEstablishmentImage = XFile(draft['shopEstablishmentImagePath']);
           if (draft['qrCodeImagePath'] != null) _qrCodeImage = XFile(draft['qrCodeImagePath']);
         });
       } catch (e) {
@@ -298,6 +305,7 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
           if (type == 'GST') _gstImage = image;
           if (type == 'PAN') _panImage = image;
           if (type == 'Aadhaar') _aadharImage = image;
+          if (type == 'ShopEstablishment') _shopEstablishmentImage = image;
           if (type == 'QRCode') _qrCodeImage = image;
         });
         _saveDraft();
@@ -328,6 +336,7 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
     if (_gstImage != null) docs.add({'type': 'GST', 'url': 'https://tubuludata.s3.ap-south-1.amazonaws.com/kyc/gst_mock.png', 'fileName': 'gst_cert.png'});
     if (_panImage != null) docs.add({'type': 'PAN', 'url': 'https://tubuludata.s3.ap-south-1.amazonaws.com/kyc/pan_mock.png', 'fileName': 'pan_card.png'});
     if (_aadharImage != null) docs.add({'type': 'Aadhaar', 'url': 'https://tubuludata.s3.ap-south-1.amazonaws.com/kyc/aadhar_mock.png', 'fileName': 'aadhar.png'});
+    if (_shopEstablishmentImage != null) docs.add({'type': 'ShopEstablishment', 'url': 'https://tubuludata.s3.ap-south-1.amazonaws.com/kyc/shop_establishment_mock.png', 'fileName': 'shop_establishment.png'});
     if (_qrCodeImage != null) docs.add({'type': 'PaymentQRCode', 'url': 'https://tubuludata.s3.ap-south-1.amazonaws.com/kyc/payment_qr_mock.png', 'fileName': 'payment_qr_code.png'});
 
     try {
@@ -345,6 +354,7 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
         'gstNumber': _gstController.text.trim().isEmpty ? null : _gstController.text.trim(),
         'panNumber': _panController.text.trim().isEmpty ? null : _panController.text.trim(),
         'aadharNumber': _aadharController.text.trim().isEmpty ? null : _aadharController.text.trim(),
+        'shopEstablishmentNumber': _shopEstablishmentController.text.trim().isEmpty ? null : _shopEstablishmentController.text.trim(),
         'upiVpa': _upiVpaController.text.trim(),
         'upiMerchantName': _upiNameController.text.trim().isEmpty ? _storeNameController.text.trim() : _upiNameController.text.trim(),
         'documents': docs,
@@ -600,20 +610,22 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
                 },
               ),
               const SizedBox(height: 8),
-              _buildKYCCard('GST Certificate', _gstImage, () => _pickImage('GST')),
+              _buildKYCCard('GST Certificate (Optional)', _gstImage, () => _pickImage('GST')),
               const Divider(height: 24),
               TextFormField(
                 controller: _panController,
                 maxLength: 10,
                 textCapitalization: TextCapitalization.characters,
                 decoration: const InputDecoration(
-                  labelText: 'PAN Number (Optional)', 
+                  labelText: 'Business PAN Number *', 
                   hintText: 'e.g. ABCDE1234F',
                   border: OutlineInputBorder(),
                   counterText: "",
                 ),
                 validator: (val) {
-                  if (val == null || val.trim().isEmpty) return null;
+                  if (val == null || val.trim().isEmpty) {
+                    return 'Business PAN is required';
+                  }
                   final uppercaseVal = val.toUpperCase().trim();
                   final panRegex = RegExp(r'^[A-Z]{5}[0-9]{4}[A-Z]$');
                   if (!panRegex.hasMatch(uppercaseVal)) {
@@ -623,7 +635,7 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
                 },
               ),
               const SizedBox(height: 8),
-              _buildKYCCard('PAN Card Photo', _panImage, () => _pickImage('PAN')),
+              _buildKYCCard('PAN Card Photo *', _panImage, () => _pickImage('PAN')),
               const Divider(height: 24),
               TextFormField(
                 controller: _aadharController,
@@ -631,13 +643,15 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 decoration: const InputDecoration(
-                  labelText: 'Aadhaar Number (Optional)', 
+                  labelText: 'Aadhaar Number *', 
                   hintText: 'e.g. 123456789012',
                   border: OutlineInputBorder(),
                   counterText: "",
                 ),
                 validator: (val) {
-                  if (val == null || val.trim().isEmpty) return null;
+                  if (val == null || val.trim().isEmpty) {
+                    return 'Aadhaar is required';
+                  }
                   final clean = val.replaceAll(RegExp(r'[^0-9]'), '');
                   if (clean.length != 12) {
                     return 'Aadhaar must be exactly 12 digits';
@@ -646,7 +660,26 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
                 },
               ),
               const SizedBox(height: 8),
-              _buildKYCCard('Aadhaar Photo', _aadharImage, () => _pickImage('Aadhaar')),
+              _buildKYCCard('Aadhaar Photo *', _aadharImage, () => _pickImage('Aadhaar')),
+              const Divider(height: 24),
+              TextFormField(
+                controller: _shopEstablishmentController,
+                maxLength: 18,
+                decoration: const InputDecoration(
+                  labelText: 'Shop Establishment Number *',
+                  hintText: 'e.g. 123456/2026',
+                  border: OutlineInputBorder(),
+                  counterText: "",
+                ),
+                validator: (val) {
+                  if (val == null || val.trim().isEmpty) {
+                    return 'Shop Establishment Number is required';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 8),
+              _buildKYCCard('Shop Establishment Photo *', _shopEstablishmentImage, () => _pickImage('ShopEstablishment')),
             ],
           ),
         );
@@ -754,6 +787,24 @@ class _MobileOnboardScreenState extends ConsumerState<MobileOnboardScreen> {
       }
     } else if (_currentStep == 2) {
       if (_formKey3.currentState!.validate()) {
+        if (_panImage == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Please capture PAN Card Photo')),
+          );
+          return;
+        }
+        if (_aadharImage == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Please capture Aadhaar Photo')),
+          );
+          return;
+        }
+        if (_shopEstablishmentImage == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Please capture Shop Establishment Photo')),
+          );
+          return;
+        }
         setState(() => _currentStep++);
         _saveDraft();
       }

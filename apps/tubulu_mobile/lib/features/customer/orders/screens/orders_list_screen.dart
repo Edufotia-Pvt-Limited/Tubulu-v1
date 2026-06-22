@@ -1451,18 +1451,13 @@ class _CancelOrderButtonState extends State<CancelOrderButton> {
     final difference = now.difference(createdAt.toUtc());
     final elapsedSecs = difference.inSeconds;
 
-    bool isWithinSixtySeconds = elapsedSecs >= 0 && elapsedSecs <= 60;
     bool isAfterFiveMinutes = elapsedSecs >= 300;
 
-    if (!isWithinSixtySeconds && !isAfterFiveMinutes) {
+    if (!isAfterFiveMinutes) {
       return const SizedBox.shrink();
     }
 
     if (widget.isLargeStyle) {
-      final remaining = 60 - elapsedSecs;
-      final labelText = isWithinSixtySeconds 
-          ? 'Cancel Order (${remaining < 0 ? 0 : remaining}s)' 
-          : 'Cancel Order';
       return Padding(
         padding: const EdgeInsets.only(top: 20, bottom: 40),
         child: SizedBox(
@@ -1470,7 +1465,7 @@ class _CancelOrderButtonState extends State<CancelOrderButton> {
           child: ElevatedButton.icon(
             onPressed: widget.onPressed,
             icon: const Icon(Icons.cancel_outlined, color: Colors.white),
-            label: Text(labelText),
+            label: const Text('Cancel Order'),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red,
               foregroundColor: Colors.white,
@@ -1482,10 +1477,6 @@ class _CancelOrderButtonState extends State<CancelOrderButton> {
         ),
       );
     } else {
-      final remaining = 60 - elapsedSecs;
-      final labelText = isWithinSixtySeconds 
-          ? 'Cancel (${remaining < 0 ? 0 : remaining}s)' 
-          : 'Cancel Order';
       return Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -1495,9 +1486,9 @@ class _CancelOrderButtonState extends State<CancelOrderButton> {
               foregroundColor: Colors.red,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
             ),
-            child: Text(
-              labelText,
-              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+            child: const Text(
+              'Cancel Order',
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(width: 8),

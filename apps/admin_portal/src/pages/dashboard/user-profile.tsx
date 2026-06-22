@@ -160,34 +160,39 @@ export function UserProfile() {
         const { aadharBase64, gstBase64, panBase64, shopBase64 } = documentDetails;
         const errorData = { ...documentErrorState }
         let validation = true;
-        if (!aadharBase64 && !gstBase64 && !panBase64 && !shopBase64) {
-            validation = false;
-            errorData.img = 'Please upload image'
-        }
-        if (!aadharBase64 && !aadhar) {
 
-        } else if (!aadharBase64 || (!validateAadhar(aadhar))) {
-            validation = false;
-            errorData.aadhar = 'Please enter valid aadhar/image'
+        // GST is optional. If either is provided, validate.
+        if (gst || gstBase64) {
+            if (!gstBase64 || (!validateGst(gst))) {
+                validation = false;
+                errorData.gst = 'Please enter valid gst/image';
+            }
         }
-        if (!gstBase64 && !gst) {
 
-        } else if (!gstBase64 || (!validateGst(gst))) {
+        // Aadhaar is compulsory
+        if (!aadhar || !aadharBase64) {
             validation = false;
-            errorData.gst = 'Please enter vaild gst/image'
+            errorData.aadhar = 'Please enter valid aadhar/image';
+        } else if (!validateAadhar(aadhar)) {
+            validation = false;
+            errorData.aadhar = 'Please enter valid aadhar/image';
         }
-        if (!panBase64 && !pan) {
 
-        } else if (!panBase64 || (!validatePan(pan))) {
+        // PAN is compulsory
+        if (!pan || !panBase64) {
             validation = false;
-            errorData.pan = 'Please enter vaild pan/image'
+            errorData.pan = 'Please enter valid pan/image';
+        } else if (!validatePan(pan)) {
+            validation = false;
+            errorData.pan = 'Please enter valid pan/image';
         }
-        if (!shopBase64 && !shopEstablishment) {
 
-        } else if (!shopBase64 || !shopEstablishment) {
+        // Shop Establishment is compulsory
+        if (!shopEstablishment || !shopBase64) {
             validation = false;
-            errorData.shopEstablishment = 'Please enter vaild shop establishment/image'
+            errorData.shopEstablishment = 'Please enter valid shop establishment/image';
         }
+
         setDocumentErrorState(errorData);
         return validation;
     }
