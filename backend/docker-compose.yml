@@ -1,0 +1,18 @@
+services:
+  tubulu-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3008:3008"
+    working_dir: /usr/tubulu/app
+    command: ["node", "index.js"]
+    restart: always
+    depends_on:
+      - tubulu-redis
+
+  tubulu-redis:
+    image: redis:7
+    container_name: tubulu-redis
+    ports:
+      - "6379:6379"

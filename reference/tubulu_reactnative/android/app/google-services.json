@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "504611724055",
+    "project_id": "tubulu-staging",
+    "storage_bucket": "tubulu-staging.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504611724055:android:fc191d779f285d8d4b7552",
+        "android_client_info": {
+          "package_name": "com.tubulubot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlB60M0ioJltvndh89B3kE0L7OeJRy41M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

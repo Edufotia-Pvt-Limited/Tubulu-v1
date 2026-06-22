@@ -1,0 +1,52 @@
+diff --git a/node_modules/native-base/src/hooks/useKeyboardDismissable.ts b/node_modules/native-base/src/hooks/useKeyboardDismissable.ts
+index f3cfa44..2544308 100644
+--- a/node_modules/native-base/src/hooks/useKeyboardDismissable.ts
++++ b/node_modules/native-base/src/hooks/useKeyboardDismissable.ts
+@@ -42,18 +42,40 @@ export const useKeyboardDismissable = ({ enabled, callback }: IParams) => {
+   useBackHandler({ enabled, callback });
+ };
+ 
+-export function useBackHandler({ enabled, callback }: IParams) {
++// export function useBackHandler({ enabled, callback }: IParams) {
++//   useEffect(() => {
++//     let backHandler = () => {
++//       callback();
++//       return true;
++//     };
++//     if (enabled) {
++//       BackHandler.addEventListener('hardwareBackPress', backHandler);
++//     } else {
++//       BackHandler.removeEventListener('hardwareBackPress', backHandler);
++//     }
++//     return () =>
++//       BackHandler.removeEventListener('hardwareBackPress', backHandler);
++//   }, [enabled, callback]);
++// }
++
++
++
++export function useBackHandler({ enabled, callback }) {
+   useEffect(() => {
+-    let backHandler = () => {
++    const backHandler = () => {
+       callback();
+       return true;
+     };
++
++    let subscription;
+     if (enabled) {
+-      BackHandler.addEventListener('hardwareBackPress', backHandler);
+-    } else {
+-      BackHandler.removeEventListener('hardwareBackPress', backHandler);
++      subscription = BackHandler.addEventListener('hardwareBackPress', backHandler);
+     }
+-    return () =>
+-      BackHandler.removeEventListener('hardwareBackPress', backHandler);
++
++    return () => {
++      if (subscription) {
++        subscription.remove();
++      }
++    };
+   }, [enabled, callback]);
+ }

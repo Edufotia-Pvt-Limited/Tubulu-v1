@@ -1,0 +1,21 @@
+diff --git a/node_modules/recyclerlistview/dist/reactnative/core/StickyContainer.js b/node_modules/recyclerlistview/dist/reactnative/core/StickyContainer.js
+index 5c1a8fc..eb7c2f4 100644
+--- a/node_modules/recyclerlistview/dist/reactnative/core/StickyContainer.js
++++ b/node_modules/recyclerlistview/dist/reactnative/core/StickyContainer.js
+@@ -63,9 +63,13 @@ var StickyContainer = /** @class */ (function (_super) {
+         };
+         _this._getRecyclerRef = function (recycler) {
+             _this._recyclerRef = recycler;
+-            if (_this.props.children.ref) {
+-                if (typeof _this.props.children.ref === "function") {
+-                    (_this.props.children).ref(recycler);
++            var childRef = _this.props.children.props ? _this.props.children.props.ref : null;
++            if (!childRef && _this.props.children && "ref" in _this.props.children) {
++                try { childRef = _this.props.children.ref; } catch(e) {}
++            }
++            if (childRef) {
++                if (typeof childRef === "function") {
++                    childRef(recycler);
+                 }
+                 else {
+                     throw new CustomError_1.default(RecyclerListViewExceptions_1.default.refNotAsFunctionException);

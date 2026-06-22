@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<title>Tubulu Universal Marketplace PRD</title>
+<style>
+  body { font-family: Calibri, sans-serif; line-height: 1.6; }
+  h1 { color: #2355C4; border-bottom: 2px solid #2355C4; padding-bottom: 5px; }
+  h2 { color: #2355C4; margin-top: 20px; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+  th { background-color: #f2f2f2; }
+  .success { color: green; font-weight: bold; }
+</style>
+</head>
+<body>
+  <h1>📄 Tubulu Universal Multi-Vertical Marketplace PRD</h1>
+
+  <h2>1. Executive Summary</h2>
+  <p>Tubulu is an agnostic, high-performance commerce infrastructure built to serve <b>multiple localized verticals</b>. Starting explicitly with Food & Grocery as validation drivers, the architectural core is fundamentally engineered to be <b>industry-fluid</b>, immediately scalable to arbitrary retail and public/private sectors (Fashion, Electronics, Pharmacy, Govt Sector) without foundational re-engineering.</p>
+
+  <h2>2. Core Strategy & Agnostic Design</h2>
+  <ul>
+    <li><b>Multi-Vertical Generalization:</b> Universal catalog containers dynamically mapping to disparate inventory types.</li>
+    <li><b>Universal Discovery:</b> Hyperlocal radius logic resolving any registered storefront regardless of business nature.</li>
+    <li><b>Dynamic Framework:</b> A modular backend allowing fast attachment of new market niches without changing core code.</li>
+  </ul>
+
+  <h2>3. Strategic Framework & Current Status</h2>
+  <table>
+    <tr><th>Architecture Block</th><th>Module Capabilities</th><th>Status</th></tr>
+    <tr><td>Geo-Routing</td><td>Universal Grid Radius (5-10km)</td><td class="success">BUILT</td></tr>
+    <tr><td>Core Inventory</td><td>Fluid Store Categories & Toggles</td><td class="success">BUILT</td></tr>
+    <tr><td>Unified Auth</td><td>Smart Instant-ID Mapping</td><td class="success">BUILT</td></tr>
+    <tr><td>Client Nodes</td><td>Universal Flutter Engine (Android/iOS)</td><td class="success">BUILT</td></tr>
+    <tr><td>Agnostic Ingest</td><td>Bulk Onboarding Templates Engine</td><td><b>PENDING</b></td></tr>
+    <tr><td>Retention Ops</td><td>Cross-Category Promo Rule Engine</td><td><b>UPCOMING</b></td></tr>
+  </table>
+
+  <h2>4. The Multi-Vertical Onramp Strategy</h2>
+  <p>Our immediate 4-week injection cycle explicitly activates the primary scale drivers:
+    <ul>
+      <li><b>Vertical 1 (Food):</b> Dynamic modifiers schema.</li>
+      <li><b>Vertical 2 (Grocery):</b> Unified weight/expiry management container.</li>
+      <li><b>Vertical 3 (Govt Sector):</b> Formal documentation mapping and services lookup framework.</li>
+    </ul>
+    These modules are constructed linearly so future categories like "Apparel" inherit the identical baseline routing automatically.
+  </p>
+
+  <h2>5. System Philosophy</h2>
+  <ul>
+    <li><b>Scalability:</b> Move from 2 industries to unlimited industries purely via configuration, not coding.</li>
+    <li><b>Unified Tech:</b> One deployment pool for infinite localized store verticals.</li>
+  </ul>
+</body>
+</html>

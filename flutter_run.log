@@ -1,0 +1,145 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 93.0.0 (104.0.0 available)
+  analyzer 10.0.1 (14.0.0 available)
+  dart_style 3.1.7 (3.1.9 available)
+  device_info_plus 12.4.0 (13.1.0 available)
+  device_info_plus_platform_interface 7.0.3 (8.1.0 available)
+  flutter_contacts 1.1.9+2 (2.2.2 available)
+  flutter_lints 3.0.2 (6.0.0 available)
+  flutter_plugin_android_lifecycle 2.0.34 (2.0.35 available)
+  flutter_riverpod 2.6.1 (3.3.2 available)
+  flutter_secure_storage 9.2.4 (10.3.1 available)
+  flutter_secure_storage_linux 1.2.3 (3.0.1 available)
+  flutter_secure_storage_macos 3.1.3 (4.0.0 available)
+  flutter_secure_storage_platform_interface 1.1.2 (2.0.1 available)
+  flutter_secure_storage_web 1.2.1 (2.1.1 available)
+  flutter_secure_storage_windows 3.1.2 (4.2.2 available)
+  geocoding 3.0.0 (4.0.0 available)
+  geocoding_android 3.3.1 (5.0.1 available)
+  geocoding_platform_interface 3.2.0 (5.0.0 available)
+  geolocator 13.0.4 (14.0.3 available)
+  geolocator_android 4.6.2 (5.0.3 available)
+  geolocator_apple 2.3.13 (2.3.14 available)
+  geolocator_platform_interface 4.2.6 (4.2.8 available)
+  geolocator_web 4.1.3 (4.1.4 available)
+  go_router 13.2.5 (17.3.0 available)
+  google_fonts 6.3.3 (8.1.0 available)
+  image_picker_android 0.8.13+17 (0.8.13+19 available)
+! js 0.6.7 (overridden) (0.7.2 available)
+  json_annotation 4.11.0 (4.12.0 available)
+  lints 3.0.0 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.17.0 (1.18.3 available)
+  mime 1.0.6 (2.0.0 available)
+! objective_c 9.4.1 (overridden)
+  package_config 2.2.0 (3.0.0 available)
+  path 1.9.1 (from direct dependency to transitive dependency)
+  path_provider 2.1.5 (2.1.6 available)
+  path_provider_platform_interface 2.1.2 (2.1.3 available)
+  permission_handler 12.0.1 (12.0.3 available)
+  permission_handler_apple 9.4.7 (9.4.10 available)
+  record 5.2.1 (7.1.0 available)
+  record_android 1.5.2 (2.1.1 available)
+  record_linux 0.7.2 (2.1.0 available)
+! record_platform_interface 1.0.0 (overridden) (2.1.0 available)
+  record_web 1.3.0 (2.1.0 available)
+  record_windows 1.0.7 (2.1.0 available)
+  riverpod 2.6.1 (3.3.2 available)
+  share_plus 7.2.2 (13.1.0 available)
+  share_plus_platform_interface 3.4.0 (7.1.0 available)
+  shared_preferences_android 2.4.23 (2.4.26 available)
+  sqflite 2.4.2+1 (from direct dependency to transitive dependency) (2.4.3 available)
+  sqflite_android 2.4.2+3 (2.4.3 available)
+  sqflite_common 2.5.7 (2.5.11 available)
+  sqflite_darwin 2.4.2 (2.4.3 available)
+  sqflite_platform_interface 2.4.0 (2.4.1 available)
+  synchronized 3.4.0+1 (3.4.1 available)
+  test_api 0.7.10 (0.7.12 available)
+  url_launcher_android 6.3.29 (6.3.32 available)
+  vector_math 2.2.0 (2.4.0 available)
+  webview_flutter_android 4.12.0 (4.13.0 available)
+  webview_flutter_wkwebview 3.25.1 (3.26.0 available)
+  win32 5.15.0 (6.3.0 available)
+  win32_registry 2.1.0 (3.0.3 available)
+Changed 2 dependencies!
+60 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Launching lib/main.dart on sdk gphone64 arm64 in debug mode...
+Running Gradle task 'assembleDebug'...                             18.2s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...        2,287ms
+D/FlutterJNI( 6041): Beginning load of flutter...
+D/FlutterJNI( 6041): flutter (null) was loaded normally!
+I/flutter ( 6041): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+D/FlutterGeolocator( 6041): Attaching Geolocator to activity
+D/FlutterRenderer( 6041): Width is zero. 0,0
+D/FlutterGeolocator( 6041): Creating service.
+D/FlutterGeolocator( 6041): Binding to location service.
+I/Choreographer( 6041): Skipped 42 frames!  The application may be doing too much work on its main thread.
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@47827cc
+Syncing files to device sdk gphone64 arm64...                   
+I/WindowExtensionsImpl( 6041): Initializing Window Extensions, vendor API level=9, activity embedding enabled=true
+D/VRI[MainActivity]( 6041): WindowInsets changed: 1080x2400 statusBars:[0,63,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,63,0,84] 
+D/FlutterRenderer( 6041): Width is zero. 0,0
+D/FlutterRenderer( 6041): Width is zero. 0,0
+D/FlutterJNI( 6041): Sending viewport metrics to the engine.
+Syncing files to device sdk gphone64 arm64...                      281ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on sdk gphone64 arm64 is available at: http://127.0.0.1:54495/hSxKAARejQs=/
+The Flutter DevTools debugger and profiler on sdk gphone64 arm64 is available at: http://127.0.0.1:54495/hSxKAARejQs=/devtools/?uri=ws://127.0.0.1:54495/hSxKAARejQs=/ws
+D/FlutterGeolocator( 6041): Geolocator foreground service connected
+D/FlutterGeolocator( 6041): Initializing Geolocator services
+D/FlutterGeolocator( 6041): Flutter engine connected. Connected engine count 1
+D/WindowLayoutComponentImpl( 6041): Register WindowLayoutInfoListener on Context=com.tubulu.tubulu_mobile.MainActivity@e191039, of which baseContext=android.app.ContextImpl@43a2f18
+D/FlutterJNI( 6041): Sending viewport metrics to the engine.
+D/InsetsController( 6041): hide(ime())
+I/ImeTracker( 6041): com.tubulu.tubulu_mobile:541f112f: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@48179a9
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@47827cc
+I/flutter ( 6041): [CONTACTS] Permission granted. Fetching address book...
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@48179a9
+I/flutter ( 6041): [CONTACTS] Syncing 0 contacts with backend...
+I/flutter ( 6041): [CONTACTS] Sync complete. 0 contacts uploaded.
+I/flutter ( 6041): [CONTACTS] Auto-sync complete. Synced 0 contacts.
+W/u.tubulu_mobile( 6041): Verification of void com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeBigInteger(android.os.Parcel, int, java.math.BigInteger, boolean) took 116.619ms (214.37 bytecodes/s) (0B arena alloc)
+D/ProfileInstaller( 6041): Installing profile for com.tubulu.tubulu_mobile
+I/u.tubulu_mobile( 6041): Compiler allocated 5145KB to compile void android.view.ViewRootImpl.performTraversals()
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@47827cc
+I/flutter ( 6041): [LocationService] ✅ Resolved GPS: 12.3237, 76.6022767 (Real: 12.3237, 76.6022767)
+I/flutter ( 6041): friendRecommendedMerchantIds: []
+I/flutter ( 6041): personalizedList length: 16
+I/flutter ( 6041): testFriendRecs length: 0
+W/u.tubulu_mobile( 6041): userfaultfd: MOVE ioctl seems unsupported: Connection timed out
+I/u.tubulu_mobile( 6041): Background concurrent mark compact GC freed 3292KB AllocSpace bytes, 12(328KB) LOS objects, 49% free, 3041KB/6083KB, paused 60us,3.907ms total 325.056ms
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@48179a9
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@47827cc
+I/flutter ( 6041): 📲 SSE ORDER_STATUS_UPDATE: ccade4e7-d109-459b-8354-64fe0a1f3213 -> canceled
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@48179a9
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@47827cc
+I/flutter ( 6041): 📲 SSE ORDER_STATUS_UPDATE: f49cf247-134e-4732-939f-a13ea4bdfd94 -> canceled
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@48179a9
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@47827cc
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@48179a9
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@47827cc
+I/flutter ( 6041): [CONTACTS] Already synced this session. Skipping.
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@48179a9
+I/flutter ( 6041): friendRecommendedMerchantIds: []
+I/flutter ( 6041): personalizedList length: 16
+I/flutter ( 6041): testFriendRecs length: 0
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@47827cc
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@48179a9
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@47827cc
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@48179a9
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@47827cc
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@48179a9
+D/WindowOnBackDispatcher( 6041): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@47827cc
+Lost connection to device.

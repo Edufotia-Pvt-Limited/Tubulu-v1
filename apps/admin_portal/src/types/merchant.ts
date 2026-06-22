@@ -1,0 +1,52 @@
+export type IMerchantItem = {
+  id: string;
+  _id?: string;
+  integrationName: string;
+  phoneNumber: string;
+  category: string;
+  pstnDID?: string;
+  sarvamApiKey?: string;
+  geminiApiKey?: string;
+  email?: string;
+  city?: string;
+  state?: string;
+  pincode?: string;
+  addressLine?: string;
+  isActive: boolean;
+  isApproved: boolean;
+  isSuspended?: boolean;
+  createdAt: string;
+  gstNumber?: string;
+  panNumber?: string;
+  aadharNumber?: string;
+  documents?: {
+    type: string;
+    url: string;
+    fileName: string;
+  }[];
+  parentId?: string;
+  parent?: { id: string; integrationName: string; role?: string };
+  branches?: { id: string; integrationName: string }[];
+  trustScore?: number;
+  isGstVerified?: boolean;
+  isPanVerified?: boolean;
+  isAadharVerified?: boolean;
+  latitude?: string | number;
+  longitude?: string | number;
+  deliveryFee?: number;
+  minimumOrderValue?: number;
+  estimatedDeliveryTime?: number;
+  city_detail?: { id: string; name: string };
+  state_detail?: { id: string; name: string };
+  loginPin?: string;
+  cityId?: string | null;
+  stateId?: string | null;
+  countryId?: string | null;
+  pidge?: {
+    enabled: boolean;
+    username?: string;
+    password?: string;
+    environment?: 'sandbox' | 'production';
+  };
+};
+
