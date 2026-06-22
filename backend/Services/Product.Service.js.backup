@@ -1,0 +1,873 @@
+const Integration = require("../Models/Integration.pg");
+const { uploadFileToAws } = require("../Utils/awsUpload");
+const Customization = require("../Models/Custmization.Model");
+const Cart = require('../Models/Cart');
+const mongoose = require('mongoose');
+const { productViewCdpEvent, productSearchCdpEvent } = require("../Utils/cdpHelper");
+const User = require('../Models/User.Model')
+const Deal = require("../Models/Deal");
+const Advertisement = require("../Models/Advertisment");
+const Order = require("../Models/Order.model");
+
+
+
+const formatDiscountPrice = (price) => {
+  if (price == null) return 0;
+
+  // Convert to string
+  const [intPart, decPart] = price.toString().split('.');
+
+  if (!decPart) return intPart; // whole number, no decimals
+
+  // Take only first 2 decimals, pad if needed
+  const truncatedDec = decPart.length === 1 ? decPart + '0' : decPart.slice(0, 2);
+
+  return `${intPart}.${truncatedDec}`;
+};
+
+
+const formatDiscountPercentage = (percentage) => {
+  if (percentage == null) return 0; // if null in DB, return 0
+  return Number(percentage); // ensure it's a number
+};
+
+
+const searchProductsService = async (query, catalogueId, integrationId, page = 1, limit = 5) => {
+  const integration = await Integration.findById(integrationId);
+  if (!integration) {
+    throw new Error("Integration not found");
+  }
+
+  let results = [];
+  const integrationCategory = await Integration.findById(integrationId).select('category').lean();
+
+
+  integration.catalogues
+    .filter((catalogue) => {
+      return !catalogueId || catalogue._id.toString() === catalogueId;
+    })
+    .forEach((catalogue) => {
+      catalogue.products
+        .filter((product) => {
+          if (product.isDeleted) return false;
+
+          if (query) {
+            const name = (product.name || "")
+              .toLowerCase()
+              .trim()
+              .replace(/\s+/g, " ");
+            const keyword = query.toLowerCase().trim().replace(/\s+/g, " ");
+            const regex = new RegExp(`\\b${keyword}`, "i");
+            return regex.test(name);
+          }
+
+          return true;
+        })
+        .forEach((product) => {
+          results.push({
+            productId: product._id,
+            productName: product.name,
+            productDescription: product.description,
+            productImages: product.imageUrls || [],
+            quantity: product.quantity,
+            category: product.product_category,
+            subCategory: product.product_subcategory,
+            foodType: product.foodType,
+            productPrice: product.price,
+            discountPrice: product.discountPrice,
+            discountPercentage: product.discountPercentage,
+            cgst: product.cgst,
+            sgst: product.sgst,
+            otherTaxes: product.otherTaxes,
+            catalogueId: catalogue._id,
+            catalogueName: catalogue.name,
+            catalogueDescription: catalogue.description,
+            catalogueIsActive: catalogue.isActive,
+            integrationId: integration._id,
+            integrationName: integration.integrationName,
+            isActive: product.isActive,
+            integrationCategory: integrationCategory.category
+          });
+        });
+    });
+
+  // total before pagination
+  const total = results.length;
+
+  // backend pagination
+  const startIndex = (page - 1) * limit;
+  const paginatedResults = results.slice(startIndex, startIndex + limit);
+
+  return { results: paginatedResults, total };
+};
+
+
+
+const addNewProductService = async (
+  integrationId,
+  catalogueId,
+  productData,
+  files
+) => {
+
+
+  // 2. Find integration
+  const integration = await Integration.findById(integrationId);
+  if (!integration) {
+    throw new Error("Integration not found");
+  }
+
+
+  // 1. Upload images to AWS
+  const imageUrls = [];
+  if (files && files.length > 0) {
+    for (const file of files) {
+      const uploadResult = await uploadFileToAws(
+        file.buffer,
+        file.mimetype,
+        file.originalname,
+        integrationId,
+        integration.integrationName,
+        "catalogues"
+      );
+      imageUrls.push(uploadResult.url);
+    }
+  }
+
+
+  // 3. Find catalogue
+  const catalogue = integration.catalogues.id(catalogueId);
+  if (!catalogue) {
+    throw new Error("Catalogue not found");
+  }
+
+  // 4. Parse and normalize values
+  const price = parseFloat(productData.price) || 0;
+  const discountPercentage = parseFloat(productData.discountPercentage) || 0;
+
+  let discountPrice = 0;
+
+  //  Handle discount calculation logic
+  if (discountPercentage > 0) {
+    discountPrice = price - (price * discountPercentage) / 100;
+    discountPrice = Math.floor(discountPrice * 100) / 100; // round to 2 decimals
+  } else {
+
+    discountPrice = price;
+  }
+
+  // 4. Build new product
+  const newProduct = {
+    name: productData.name,
+    description: productData.description,
+    price: productData.price,
+    currency: productData.currency || "INR",
+    sku: productData.sku,
+    product_category: productData.category,
+    product_subcategory: productData.subCategory,
+    foodType: productData.foodType,
+    quantity: productData.quantity || 1,
+    discountPercentage,
+    discountPrice,
+    cgst: productData.cgst,
+    sgst: productData.sgst,
+    otherTaxes: productData.otherTaxes,
+    imageUrls,
+  };
+
+  // 5. Push into catalogue & save
+  catalogue.products.push(newProduct);
+  await integration.save();
+
+  return newProduct;
+};
+
+
+//  Fetch single product details (checks inside given catalogue)
+const getProductDetailsService = async (productId, catalogueId, integrationId) => {
+  const integration = await Integration.findById(integrationId);
+  if (!integration) throw new Error("Integration not found");
+
+  const catalogue = integration.catalogues.id(catalogueId);
+  if (!catalogue || catalogue.isDeleted) {
+    throw new Error("Catalogue not found");
+  }
+
+  const integrationCategory = await Integration.findById(integrationId).select('category').lean();
+
+
+
+  const product = catalogue.products.id(productId);
+  if (!product) return null;
+
+  return {
+    productId: product._id,
+    productName: product.name,
+    productDescription: product.description,
+    productPrice: product.price,
+    productCurrency: product.currency,
+    productSku: product.sku,
+    productImages: product.imageUrls,
+    quantity: product.quantity,
+    category: product.product_category,
+    subCategory: product.product_subcategory,
+    foodType: product.foodType,
+    discountPercentage: product.discountPercentage,
+    discountPrice: product.discountPrice,
+    cgst: product.cgst,
+    sgst: product.sgst,
+    otherTaxes: product.otherTaxes,
+    catalogueId: catalogue._id,
+    catalogueName: catalogue.name,
+    catalogueDescription: catalogue.description,
+    integrationCategory: integrationCategory.category
+  };
+
+};
+
+
+const editProductService = async (
+  integrationId,
+  catalogueId,
+  productId,
+  productData,
+  files
+) => {
+  const integration = await Integration.findById(integrationId);
+  if (!integration) throw new Error("Integration not found");
+
+  const catalogue = integration.catalogues.id(catalogueId);
+  if (!catalogue || catalogue.isDeleted) {
+    throw new Error("Catalogue not found");
+  }
+
+  const product = catalogue.products.id(productId);
+  if (!product) throw new Error("Product not found");
+
+  // Upload new images if any
+  let newImageUrls = [];
+  if (files && files.length > 0) {
+    for (const file of files) {
+      const uploadResult = await uploadFileToAws(
+        file.buffer,
+        file.mimetype,
+        file.originalname,
+        integrationId,
+        integration.integrationName,
+        "catalogues"
+      );
+      newImageUrls.push(uploadResult.url);
+    }
+  }
+
+  // If frontend passes existingImages → keep them, else reset
+  let finalImageUrls = [];
+  if (productData.existingImages) {
+    try {
+      const existingParsed = JSON.parse(productData.existingImages);
+      if (Array.isArray(existingParsed)) {
+        finalImageUrls = [...existingParsed];
+      }
+    } catch (err) {
+      console.warn("Failed to parse existingImages", err.message);
+    }
+  }
+  finalImageUrls = [...finalImageUrls, ...newImageUrls];
+
+  const price = parseFloat(productData.price) || 0;
+
+  let discountPrice = productData.discountPrice;
+  let discountPercentage = productData.discountPercentage;
+
+  if (discountPercentage === "" || discountPercentage === null || discountPercentage === undefined) {
+    discountPercentage = 0;
+    discountPrice = price;
+  } else {
+    discountPercentage = parseFloat(discountPercentage);
+
+    // If user provides % but not price → calculate
+    if (discountPercentage > 0 && (!discountPrice || discountPrice === "")) {
+      discountPrice = price - (price * discountPercentage) / 100;
+      discountPrice = Math.floor(discountPrice * 100) / 100; // round off
+    } else {
+      discountPrice = parseFloat(discountPrice) || price;
+    }
+  }
+
+
+
+
+  // Update product fields
+  product.name = productData.name ?? product.name;
+  product.description = productData.description ?? product.description ?? "";
+  product.price = productData.price ?? product.price;
+  product.currency = productData.currency ?? product.currency;
+  product.sku = productData.sku ?? product.sku;
+  product.product_category = productData.category ?? product.product_category;
+  product.product_subcategory = productData.subCategory ?? product.product_subcategory ?? "";
+  product.foodType = productData.foodType ?? product.foodType ?? "Other";
+  product.quantity = productData.quantity ?? product.quantity;
+  product.imageUrls = finalImageUrls;
+
+  // New fields
+  product.discountPercentage = discountPercentage;
+  product.discountPrice = discountPrice;
+  product.cgst = productData.cgst ?? product.cgst ?? 0;
+  product.sgst = productData.sgst ?? product.sgst ?? 0;
+  product.otherTaxes = productData.otherTaxes ?? product.otherTaxes ?? 0;
+
+  await integration.save();
+
+  return product;
+};
+
+
+const deleteProductService = async (productId, integrationId) => {
+  const integration = await Integration.findById(integrationId);
+  if (!integration) {
+    throw new Error("Integration not found");
+  }
+
+
+  // Find the catalogue that contains the product
+  const catalogue = integration.catalogues.find(cat =>
+    cat.products.some(p => p._id.toString() === productId)
+  );
+
+  if (!catalogue) {
+    throw new Error("Catalogue not found for product");
+  }
+
+
+  const product = integration.catalogues.flatMap(catalogue => catalogue.products).find(product => product._id.toString() === productId);
+  if (!product) {
+    throw new Error("Product not found");
+  }
+  product.isDeleted = true;
+
+
+  // If all products in catalogue are deleted → deactivate catalogue
+  const activeProducts = catalogue.products.filter(p => !p.isDeleted && p.isActive);
+
+
+  if (activeProducts.length === 0) {
+    catalogue.isActive = false;
+    catalogue.status = "complete";
+  }
+
+
+
+  await integration.save();
+  return product;
+
+}
+
+
+const toggleProductActiveService = async (integrationId, catalogueId, productId, isActive) => {
+  const integration = await Integration.findById(integrationId);
+  if (!integration) throw new Error("Integration not found");
+
+  const catalogue = integration.catalogues.id(catalogueId);
+  if (!catalogue) throw new Error("Catalogue not found");
+
+  const product = catalogue.products.id(productId);
+  if (!product) throw new Error("Product not found");
+
+  product.isActive = !!isActive;
+
+
+
+  // If there are no active + not deleted products, mark catalogue inactive
+  const activeProducts = catalogue.products.filter(
+    p => !p.isDeleted && p.isActive
+  );
+
+
+  if (activeProducts.length === 0) {
+    catalogue.isActive = false;
+    catalogue.status = "complete";
+  }
+
+  await integration.save();
+
+  return { productId: product._id, isActive: product.isActive };
+};
+
+
+
+
+const searchAppProductsByIntegrationService = async (
+  integrationId,
+  userId,
+  foodTypes,
+  search,
+  pricerange,
+  discountrange
+) => {
+  const integration = await Integration.findById(integrationId).lean();
+  if (!integration) throw new Error("Integration not found");
+
+
+  const orders = await Order.find({
+    integrationId: integration._id,
+    status: "delivered"
+
+  })
+
+
+  const totalOrders = orders.length
+
+
+  const integrationName = integration.integrationName;
+  const integrationLogo = integration.logo;
+
+
+  //  Get active catalogues
+  const catalogues = integration.catalogues.filter(
+    (catalogue) => catalogue.isActive && !catalogue.isDeleted
+  );
+
+
+  const result = await Promise.all(
+    catalogues.map(async (catalogue) => {
+
+
+      let products = catalogue.products.filter(
+        (product) => product.isActive && !product.isDeleted
+      );
+
+
+
+      //  Step 0: If "Offer" is selected, filter products with active deals
+      let dealProductIds = [];
+      if (Array.isArray(foodTypes) && foodTypes.map(f => f.toLowerCase()).includes("offer")) {
+        const deals = await Deal.find({
+          integrationId: integrationId,
+          catalogueId: catalogue._id,
+          isDeleted: false,
+          isActive: true
+        }).lean();
+
+        dealProductIds = deals.flatMap((deal) =>
+          (deal.appliesOnProducts || []).map((id) => id.toString())
+        );
+
+        products = products.filter((p) => dealProductIds.includes(p._id.toString()));
+      }
+
+      //  Step 1: Multi-select foodType filter (exclude "Offer" now since handled above)
+      if (Array.isArray(foodTypes) && foodTypes.length > 0) {
+        const normalizedFoodTypes = foodTypes
+          .map((f) => f.toLowerCase())
+          .filter((f) => f !== "offer"); // remove Offer from normal foodType filter
+
+        if (normalizedFoodTypes.includes("other")) {
+          products = products.filter(
+            (p) =>
+              p.foodType &&
+              !["veg", "non veg", "non-veg"].includes(p.foodType.toLowerCase())
+          );
+        } else if (normalizedFoodTypes.length > 0) {
+          products = products.filter(
+            (p) =>
+              p.foodType &&
+              normalizedFoodTypes.includes(p.foodType.toLowerCase())
+          );
+        }
+      }
+
+
+      //  Step 2: Search by name
+      if (search && search.trim() !== "") {
+        const keyword = search.trim().toLowerCase().replace(/\s+/g, " ");
+        const regex = new RegExp(`\\b${keyword}`, "i");
+        products = products.filter((p) =>
+    regex.test((p.name || "").toLowerCase()) ||
+    regex.test((p.product_category || "").toLowerCase())
+  );
+      }
+
+      //  Step 3: Price range
+      if (pricerange) {
+        if (pricerange.toLowerCase() === "budget") {
+          products = products.filter((p) => p.price <= 500);
+        } else if (pricerange.toLowerCase() === "expensive") {
+          products = products.filter((p) => p.price > 500);
+        }
+      }
+
+      //  Step 4: Discount filter
+      if (discountrange) {
+        const minDiscount = parseInt(discountrange, 10);
+        if (!isNaN(minDiscount)) {
+          products = products.filter(
+            (p) => p.discountPercentage >= minDiscount
+          );
+        }
+      }
+
+      //  Step 5: Map products
+      const productList = await Promise.all(
+        products.map(async (product) => {
+          let isCustomized = false;
+          if (product.customizationId) {
+            const customization = await Customization.findById(
+              product.customizationId
+            )
+              .select("_id isActive isDeleted")
+              .lean();
+            if (customization && customization.isActive && !customization.isDeleted)
+              isCustomized = true;
+          }
+
+
+          return {
+            productId: product._id,
+            productName: product.name,
+            productDescription: product.description,
+            productImages: product.imageUrls || [],
+            quantity: product.quantity,
+            productPrice: product.price,
+            discountPrice: formatDiscountPrice(product.discountPrice),
+            discountPercentage: formatDiscountPercentage(product.discountPercentage),
+            cgst: product.cgst,
+            sgst: product.sgst,
+            otherTaxes: product.otherTaxes,
+            category: product.product_category,
+            subcategory: product.product_subcategory,
+            foodType:
+              typeof product.foodType === "string" && product.foodType.trim() === ""
+                ? "Other"
+                : product.foodType,
+            isCustomized,
+          };
+        })
+      );
+
+
+
+      // // Step 6: Group by category → subcategory → items[]
+      const structuredProducts = {};
+      const categoryNames = [];
+
+      catalogue.products
+        .filter((product) => product.isActive && !product.isDeleted)
+        .forEach((product) => {
+          const category = product.product_category || "Miscellaneous";
+
+          if (!categoryNames.includes(category)) {
+            categoryNames.push(category);
+          }
+        });
+
+
+      productList.forEach((product) => {
+        const category = product.category || "Miscellaneous";
+
+        if (!structuredProducts[category]) structuredProducts[category] = [];
+
+        // Only include subcategory if it exists and is not empty
+        const subcategory = product.subcategory && product.subcategory.trim() !== ""
+          ? product.subcategory
+          : undefined;
+
+        // Try to find existing subcategory group
+        let subcatGroup;
+        if (subcategory) {
+          subcatGroup = structuredProducts[category].find(
+            (group) => group.subcategory === subcategory
+          );
+        } else {
+          // If no subcategory, group all items without subcategory together
+          subcatGroup = structuredProducts[category].find((group) => !group.subcategory);
+        }
+
+        if (!subcatGroup) {
+          subcatGroup = subcategory ? { subcategory, items: [] } : { items: [] };
+          structuredProducts[category].push(subcatGroup);
+        }
+
+        subcatGroup.items.push(product);
+      });
+
+
+
+      const now = new Date();
+
+      const deals = await Deal.find({
+        integrationId: integrationId,
+        catalogueId: catalogue._id,
+        isDeleted: false,
+        isActive: true,
+        startDate: { $lte: now },
+        endDate: { $gte: now },
+      });
+
+
+
+      const formattedDeals = deals.map((deal) => ({
+        name: deal.name,
+        descriptions: deal.descriptions || [],
+        couponCode: deal.couponCode,
+      }));
+
+
+      const advertisement = await Advertisement.findOne({
+        integrationId: integrationId,
+        isActive: true,
+        isDeleted: false,
+      }).lean();
+
+      const advBannerUrl = advertisement ? advertisement.bannerUrl : null;
+
+      //  Step 7: Return per-catalogue data
+      return {
+        integrationName,
+        integrationLogo,
+        catalogueId: catalogue._id,
+        catalogueName: catalogue.name,
+        catalogueDescription: catalogue.description,
+        displayType: catalogue.displayType,
+        products: structuredProducts,
+        totalProducts: productList.length,
+        deals: formattedDeals,
+        advBannerUrl,
+        categoryNames,
+        totalOrders
+      };
+    })
+  );
+
+  //  Step 8: Trigger CDP event in background (non-blocking)
+  process.nextTick(async () => {
+    try {
+      if (!search) return; // no need to send event if no search term
+
+      const user = await User.findById(userId).lean();
+      const cdpAccessToken = integration?.cdpAccessToken;
+
+      if (!cdpAccessToken || !cdpAccessToken.trim()) return;
+
+      const existingDetail = user?.cdpDetails?.find(
+        (detail) => detail.integration_id.toString() === integrationId.toString()
+      );
+
+      if (
+        existingDetail?.cdpIDs?.profileId &&
+        existingDetail?.cdpIDs?.sessionId
+      ) {
+        const { profileId, sessionId } = existingDetail.cdpIDs;
+
+        await productSearchCdpEvent(cdpAccessToken, {
+          profileId,
+          sessionId,
+          searchString: search,
+        });
+      }
+    } catch (err) {
+      console.error(" CDP event (background) failed:", err.message);
+    }
+  });
+
+  return result;
+};
+
+
+
+
+const getAllFoodTypesService = async (integrationId) => {
+  const integration = await Integration.findById(integrationId).lean();
+  if (!integration) throw new Error("Integration not found");
+
+  //  Filter only active + not deleted catalogues
+  const catalogues = integration.catalogues.filter(
+    (catalogue) => catalogue.isActive && !catalogue.isDeleted
+  );
+
+  const foodTypeSet = new Set();
+  let isOfferExist = false;
+
+  for (const catalogue of catalogues) {
+    //  CHECK IF DEAL EXISTS FOR THIS CATALOGUE
+    const deals = await Deal.find({
+      integrationId: integrationId,
+      catalogueId: catalogue._id,
+      isDeleted: false,
+      isActive: true
+    });
+
+
+    if (deals && deals.length > 0) {
+      isOfferExist = true;
+    }
+
+    // Collect unique food types (case-insensitive, excluding "Other")
+    catalogue.products.forEach((product) => {
+      if (
+        product.isActive &&
+        !product.isDeleted &&
+        product.foodType &&
+        product.foodType.trim().toLowerCase() !== "other"
+      ) {
+        const normalizedFoodType = product.foodType
+          .trim()
+          .toLowerCase()
+          .replace(/\b\w/g, (c) => c.toUpperCase());
+
+        foodTypeSet.add(normalizedFoodType);
+      }
+    });
+  }
+
+  //  If any deal exists, add "Offer" as a food type
+  if (isOfferExist) {
+    foodTypeSet.add("Offer");
+  }
+
+  //  Convert Set → Array
+  const foodTypes = Array.from(foodTypeSet);
+
+  return foodTypes;
+};
+
+
+
+
+
+const getProductCustomizationService = async (productId, catalogueId, integrationId, userId) => {
+  const integration = await Integration.findById(integrationId);
+  if (!integration) throw new Error("Integration not found");
+
+
+  const cdpAccessToken = integration.cdpAccessToken;
+  if (!cdpAccessToken) {
+    console.log(" No CDP Access Token — skipping CDP productView event.");
+  }
+
+
+  const catalogue = integration.catalogues.id(catalogueId);
+  if (!catalogue || catalogue.isDeleted || !catalogue.isActive) {
+    throw new Error("Catalogue not found or inactive");
+  }
+
+  const product = catalogue.products.id(productId);
+  if (!product || product.isDeleted || !product.isActive) {
+    throw new Error("Product not found or inactive");
+  }
+
+  let customization = null;
+  if (product.customizationId) {
+    customization = await Customization.findOne({
+      _id: product.customizationId,
+      integrationId,
+      isDeleted: false,
+      isActive: true
+    }).lean();
+  }
+
+
+  let profileId = null;
+  let sessionId = null;
+
+  if (cdpAccessToken && userId) {
+    const user = await User.findById(userId);
+    if (user) {
+      const cdpDetail = user.cdpDetails.find(
+        (d) => d.integration_id.toString() === integrationId.toString()
+      );
+      if (cdpDetail) {
+        profileId = cdpDetail.cdpIDs.profileId;
+        sessionId = cdpDetail.cdpIDs.sessionId;
+      }
+    }
+  }
+
+
+  //  Send CDP productView event if possible
+  if (cdpAccessToken && profileId && sessionId) {
+    await productViewCdpEvent({
+      cdpAccessToken,
+      eventType: "productView",
+      profileId,
+      sessionId,
+      properties: {
+        productId: product._id.toString(),
+        productName: product.name,
+        price: parseFloat(product.discountPrice.toFixed(2)),
+        category: product.product_category,
+        brand: integration.integrationName || "Unknown",
+      },
+    });
+  } else {
+    console.log(" Missing CDP credentials — productView event skipped.");
+  }
+
+  // Prepare and return response
+  return {
+    product: {
+      productId: product._id,
+      productName: product.name,
+      productDescription: product.description,
+      productPrice: product.price,
+      productCurrency: product.currency,
+      productSku: product.sku,
+      productImages: product.imageUrls,
+      quantity: product.quantity,
+      category: product.product_category,
+      subCategory: product.product_subcategory,
+      discountPercentage: product.discountPercentage,
+      discountPrice: product.discountPrice,
+      cgst: product.cgst,
+      sgst: product.sgst,
+      otherTaxes: product.otherTaxes,
+      catalogueId: catalogue._id,
+      catalogueName: catalogue.name,
+      catalogueDescription: catalogue.description,
+    },
+    customization: customization
+      ? {
+        customizationId: customization._id,
+        customizationName: customization.customizationName,
+        options: customization.options
+          .filter(opt => !opt.isDeleted && opt.isActive)
+          .map(opt => ({
+            optionId: opt._id,
+            name: opt.name,
+            type: opt.type,
+            required: opt.required,
+            priceType: opt.priceType,
+            choices: opt.choices.map(choice => ({
+              choiceId: choice._id,
+              name: choice.name,
+              isDefault: choice.isDefault,
+              priceAdjustment: choice.priceAdjustment,
+              foodType: !choice.foodType
+                ? 'Other'
+                : choice.foodType.toLowerCase() === 'veg'
+                  ? 'Veg'
+                  : choice.foodType.toLowerCase() === 'non veg'
+                    ? 'Non Veg'
+                    : choice.foodType,
+            })),
+          })),
+      }
+      : null,
+  };
+};
+
+
+
+
+
+
+module.exports = {
+  searchProductsService,
+  addNewProductService,
+  getProductDetailsService,
+  editProductService,
+  deleteProductService,
+  toggleProductActiveService,
+  searchAppProductsByIntegrationService,
+  getProductCustomizationService,
+  getAllFoodTypesService
+};

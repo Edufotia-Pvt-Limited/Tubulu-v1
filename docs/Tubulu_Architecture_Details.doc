@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<title>Tubulu Master Architecture Manual</title>
+<style>
+  body { font-family: Calibri, Arial, sans-serif; line-height: 1.5; color: #333; }
+  h1 { color: #2355C4; border-bottom: 2px solid #2355C4; padding-bottom: 6px; margin-bottom: 20px; }
+  h2 { color: #1A237E; background-color: #E8EAF6; padding: 8px; border-left: 5px solid #2355C4; margin-top: 25px; }
+  h3 { color: #2E7D32; margin-top: 15px; margin-bottom: 5px; }
+  p { margin-top: 0; margin-bottom: 10px; text-align: justify; }
+  ul { margin-top: 0; }
+  li { margin-bottom: 4px; }
+  .important { font-weight: bold; color: #C62828; }
+</style>
+</head>
+<body>
+  <h1>📄 Tubulu Ecosystem: Comprehensive Architecture Manual</h1>
+  <p>This document delivers the rigorous technical definitions defining every strategic functional block within the Tubulu Universal Hyperlocal Commerce Infrastructure.</p>
+
+  <h2>1. 🧠 Agentic AI Tier</h2>
+  <p><b>Definition:</b> The Advanced Cognitive Intelligence Core.</p>
+  <p><b>Core Capabilities:</b></p>
+  <ul>
+    <li>Facilitates <b>Semantic Intent Mapping</b>, converting user text/speech into actionable API commands.</li>
+    <li>Drives natural language product search generators and intelligent chatbot automation.</li>
+    <li>Acts as an omniscient connector bridging the core Cloud system with dynamic Generative Reasoning capabilities.</li>
+  </ul>
+
+  <h2>2. 📱 The Presentation Layer (Front End)</h2>
+  <h3>A. Flutter Tubulu Application</h3>
+  <p><b>Definition:</b> Native Multi-Platform Mobile Experience.</p>
+  <p>Deployed using a unified Dart codebase compiling directly to Swift and Kotlin for zero-lag native performance on both Apple iOS and Google Android devices simultaneously.</p>
+  
+  <h3>B. Tubulu Admin & Vendor Portal</h3>
+  <p><b>Definition:</b> Operational Web Dashboard.</p>
+  <p>A high-density web management tool utilized by Merchants to manipulate inventory, manage real-time Order streams, update store operational hours, and visualize performance metrics.</p>
+
+  <h2>3. 🚀 The Computation Heart (Back End Cluster)</h2>
+  <h3>A. Node.js / Express.js</h3>
+  <p><b>Definition:</b> The Master API Orchestra & Business Logic Center.</p>
+  <p>An event-driven asynchronous server responsible for user authentication safety (JWT tokens), inbound data validation guards, order workflow state machines, and delegating traffic efficiently between memory and disk storage.</p>
+
+  <h3>B. iORedis Grid</h3>
+  <p><b>Definition:</b> Ultra-High-Speed Ephemeral Caching Memory.</p>
+  <p>Acts as the <b>Shield Tier</b>, retaining microsecond-accessible datasets in raw system RAM. Safely maintains inventory locks, rate-limiting rules, and short-lived active user sessions to keep CPU loads near zero.</p>
+
+  <h3>C. PostgreSQL</h3>
+  <p><b>Definition:</b> Master Relational Database & Financial Ledger.</p>
+  <p>The uncompromising <b>Source of Truth</b>. Provides strict ACID compliance ensuring every credit entry and final order record is locked securely to disk, ensuring 100% data durability and relational consistency across the platform.</p>
+
+  <h2>4. ☁️ Google Ecosystem Integrations</h2>
+  <h3>A. Google Cloud Storage (GCS)</h3>
+  <p><b>Definition:</b> Elastic Infinite-Object Asset Vault.</p>
+  <p>Responsibly offloads storage heavy-lifting away from the API. Houses all static imagery, logos, merchant identity PDFs, and backup archive volumes ensuring fast retrieval via globally reliable static links.</p>
+
+  <h3>B. Google Firebase (FCM)</h3>
+  <p><b>Definition:</b> Real-Time Cloud Notification Broker.</p>
+  <p>Operates the vital system-to-phone alert pipeline. Directly responsible for injecting wake-up notifications onto backgrounded phone operating systems for transactional triggers (New Order, Dispatched, etc.).</p>
+
+  <h2>5. 💬 Omnichannel External Grid</h2>
+  <h3>A. WhatsApp Cloud Pipeline</h3>
+  <p><b>Definition:</b> Native Social Transaction Engagement.</p>
+  <p>Triggers external Meta API conduits to facilitate automated, frictionless direct communication via consumer green-bubble chat interfaces for receipt confirmations and broadcast alerts.</p>
+
+  <h3>B. Voice Call - PSTN</h3>
+  <p><b>Definition:</b> Public Switched Telephone Network / Telephony Bridge.</p>
+  <p>Operates secured number-masked VoIP gateways permitting safe direct spoken communication between consumer elements without breaching private raw number confidentiality.</p>
+  
+  <hr style="margin-top: 40px;">
+  <p style="text-align: center; font-size: 10px;"><i>Confidential System Blueprint - Version 1.0</i></p>
+</body>
+</html>

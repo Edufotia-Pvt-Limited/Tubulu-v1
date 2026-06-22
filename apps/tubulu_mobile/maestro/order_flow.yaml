@@ -1,0 +1,33 @@
+appId: com.tubulubot # Replace with your Android application ID
+---
+# 1. First, run the login flow to authenticate the user
+- runFlow: login_flow.yaml
+
+# 2. Start from the 'Explore' tab (or the main dashboard)
+- assertVisible: "Explore"
+
+# 3. Find and tap on a Store or Category
+# Replace "Indian Flavours" with an actual visible store or category name on your screen
+- tapOn: "Indian Flavours" 
+
+# 4. Find and add a product to the cart
+# Replace with actual text for the "Add" button or product name
+- tapOn: "Add" 
+- assertVisible: "Item added to cart" # Replace with actual toast/snackbar text if applicable
+
+# 5. Go to Cart / Checkout
+# In Tubulu Mobile, there is usually a Cart icon or a "View Cart" button at the bottom
+- tapOn: "View Cart" # OR tapOn: id: "cart_icon"
+- assertVisible: "Proceed to Checkout"
+
+# 6. Proceed to Checkout
+- tapOn: "Proceed to Checkout"
+
+# 7. Finalize and Place Order
+# Ensure any delivery details or required fields are filled if applicable
+- assertVisible: "Place Order"
+- tapOn: "Place Order"
+
+# 8. Verify Success
+# Wait and check for the success screen or order confirmation message
+- assertVisible: "Order Successful" # Or whatever your success text is

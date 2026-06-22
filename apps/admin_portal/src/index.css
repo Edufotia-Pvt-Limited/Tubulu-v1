@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.resend-style {
+    color: var(--success-main, #36B37E);
+    font-size: 14px;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    text-decoration-line: underline;
+  }
+
+  audio::-webkit-media-controls-panel {
+    background-color: #ffffff;
+    border-radius: none !important;
+  }
+
+  .react-tel-input .country-list .flag {
+    position: static;
+  }

@@ -1,0 +1,42 @@
+
+> @minimal-kit/vite-ts@5.3.0 dev
+> vite
+
+
+  VITE v4.4.4  ready in 487 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+Browserslist: browsers data (caniuse-lite) is 9 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+10:29:05 PM [vite] hmr update /src/pages/dashboard/superadmin-users.tsx, /src/index.css
+10:31:01 PM [vite] hmr update /src/pages/dashboard/superadmin-users.tsx, /src/index.css
+10:38:29 AM [vite] hmr update /src/pages/dashboard/order.tsx, /src/index.css
+10:53:45 AM [vite] hmr update /src/auth/guard/role-guard.tsx, /src/index.css
+12:04:25 PM [vite] hmr update /src/layouts/dashboard/config-navigation.tsx, /src/index.css
+12:04:25 PM [vite] hmr invalidate /src/layouts/dashboard/config-navigation.tsx Could not Fast Refresh. Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+12:04:25 PM [vite] hmr update /src/index.css, /src/layouts/dashboard/layout.tsx, /src/layouts/dashboard/nav-vertical.tsx, /src/layouts/dashboard/nav-horizontal.tsx, /src/layouts/dashboard/nav-mini.tsx, /src/layouts/_common/searchbar/searchbar.tsx
+12:35:16 PM [vite] hmr update /src/pages/dashboard/order.tsx, /src/index.css
+12:58:06 PM [vite] hmr update /src/auth/guard/auth-guard.tsx, /src/index.css
+12:58:14 PM [vite] hmr update /src/auth/context/jwt/auth-provider.tsx, /src/index.css
+12:59:23 PM [vite] hmr update /src/pages/verify-phone-number/verify-phone-number.screen.tsx, /src/index.css
+1:06:47 PM [vite] hmr update /src/layouts/dashboard/config-navigation.tsx, /src/index.css
+1:06:47 PM [vite] hmr invalidate /src/layouts/dashboard/config-navigation.tsx Could not Fast Refresh. Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+1:06:47 PM [vite] hmr update /src/index.css, /src/layouts/dashboard/layout.tsx, /src/layouts/dashboard/nav-vertical.tsx, /src/layouts/dashboard/nav-horizontal.tsx, /src/layouts/dashboard/nav-mini.tsx, /src/layouts/_common/searchbar/searchbar.tsx
+1:06:57 PM [vite] hmr update /src/index.css, /src/sections/checkout/context/checkout-provider.tsx, /src/layouts/auth/classic.tsx, /src/layouts/dashboard/config-navigation.tsx, /src/sections/merchants/view/merchants-list-view.tsx, /src/sections/merchants/merchant-onboard-form.tsx, /src/sections/catalogue/view/catalogue-list-view.tsx, /src/auth/guard/guest-guard.tsx, /src/auth/context/jwt/auth-provider.tsx, /src/pages/dashboard/superadmin-users.tsx, /src/pages/dashboard/merchants/details.tsx, /src/pages/dashboard/settlements.tsx, /src/layouts/dashboard/header.tsx, /src/sections/overview/analytics/view/super-admin-analytics-view.tsx, /src/sections/merchant/view/merchant-profile-view.tsx, /src/sections/ai-playbooks/view/ai-playbooks-view.tsx, /src/sections/chat/view/chat-view.tsx, /src/sections/chat/chat-message-input.tsx, /src/sections/chat/chat-nav-item.tsx, /src/layouts/_common/login-button.tsx, /src/layouts/main/header.tsx, /src/sections/overview/analytics/view/overview-analytics-view.tsx, /src/layouts/_common/contacts-popover.tsx, /src/layouts/main/footer.tsx, /src/auth/guard/role-based-guard.tsx, /src/layouts/_common/nav-upgrade.tsx, /src/layouts/_common/account-popover.tsx, /src/sections/account/account-general.tsx, /src/sections/chat/chat-message-item.tsx, /src/layouts/_common/notifications-popover/notifications-popover.tsx, /src/layouts/_common/header-simple.tsx, /src/sections/chat/chat-nav.tsx
+1:06:58 PM [vite] hmr invalidate /src/layouts/dashboard/config-navigation.tsx Could not Fast Refresh. Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+1:06:58 PM [vite] hmr update /src/index.css, /src/layouts/dashboard/layout.tsx, /src/layouts/dashboard/nav-vertical.tsx, /src/layouts/dashboard/nav-horizontal.tsx, /src/layouts/dashboard/nav-mini.tsx, /src/layouts/_common/searchbar/searchbar.tsx
+1:07:46 PM [vite] hmr update /src/routes/sections/index.tsx, /src/index.css
+1:07:51 PM [vite] hmr update /src/routes/sections/index.tsx, /src/index.css
+1:12:23 PM [vite] hmr update /src/sections/super-admin-settings/view/super-admin-settings-view.tsx, /src/index.css
+1:12:49 PM [vite] hmr update /src/sections/super-admin-settings/view/super-admin-settings-view.tsx, /src/index.css
+1:16:38 PM [vite] hmr update /src/index.css, /src/auth/context/jwt/auth-provider.tsx, /src/pages/dashboard/superadmin-users.tsx, /src/pages/dashboard/merchants/details.tsx, /src/pages/dashboard/settlements.tsx, /src/layouts/dashboard/header.tsx, /src/sections/merchants/view/merchants-list-view.tsx, /src/sections/overview/analytics/view/super-admin-analytics-view.tsx, /src/sections/merchants/merchant-onboard-form.tsx, /src/sections/catalogue/view/catalogue-list-view.tsx, /src/sections/merchant/view/merchant-profile-view.tsx, /src/sections/ai-playbooks/view/ai-playbooks-view.tsx, /src/sections/chat/view/chat-view.tsx, /src/sections/chat/chat-message-input.tsx, /src/sections/chat/chat-nav-item.tsx, /src/sections/ai-bot/view/ai-bot-view.tsx, /src/sections/super-admin-settings/settings-ai.tsx
+1:16:47 PM [vite] hmr update /src/sections/super-admin-settings/settings-ai.tsx, /src/index.css
+1:16:55 PM [vite] hmr update /src/sections/ai-bot/view/ai-bot-view.tsx, /src/index.css
+1:29:13 PM [vite] hmr update /src/sections/super-admin-settings/settings-ai.tsx, /src/index.css
+8:36:25 PM [vite] hmr update /src/sections/overview/analytics/view/super-admin-analytics-view.tsx, /src/index.css
+8:38:50 PM [vite] hmr update /src/sections/overview/analytics/view/super-admin-analytics-view.tsx, /src/index.css
+5:00:52 PM [vite] hmr update /src/sections/merchants/merchant-edit-dialog.tsx, /src/index.css
+5:00:58 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+5:01:07 PM [vite] hmr update /src/sections/ai-playbooks/view/ai-playbooks-view.tsx, /src/index.css
