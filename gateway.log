@@ -1,0 +1,13 @@
+
+========================================================
+⚡   TUBULU VOICE-AI PSTN GATEWAY   ⚡
+========================================================
+WebSocket  : ws://0.0.0.0:8080
+Codec      : SLIN16  16 kHz  640 bytes/frame  20 ms
+STT        : Sarvam saarika:v2.5  (REST)
+TTS        : Sarvam bulbul:v2     (REST → PCM → streamed)
+LLM        : sarvam-m             (REST)
+Backend    : http://localhost:3008/api/v1
+Sarvam Key : ❌ NOT SET
+========================================================
+

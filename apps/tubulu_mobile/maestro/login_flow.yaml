@@ -1,0 +1,14 @@
+appId: com.tubulubot # Use your exact app bundle ID here (com.tubulubot for Android)
+---
+- launchApp:
+    clearState: true # Start fresh every time
+- assertVisible: "Login" # Adjust based on your actual button text
+- tapOn: "Phone Number" # Adjust based on your text field hint
+- inputText: "9999123456"
+- tapOn: "Get OTP"
+- assertVisible: "Enter OTP"
+- tapOn: "OTP" # Adjust based on your OTP field hint
+- inputText: "000000"
+- tapOn: "Verify"
+# Wait for home screen to appear and verify
+- assertVisible: "Home" # Adjust based on text visible on your dashboard

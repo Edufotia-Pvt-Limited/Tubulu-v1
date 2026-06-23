@@ -1,0 +1,20 @@
+appId: com.tubulu.tubulu_mobile
+---
+# Launch the application
+- launchApp
+
+# Step 1: Input the Phone Number
+- tapOn: "Phone Number"
+- inputText: "7795739458"
+- hideKeyboard
+
+# Tap "Next" to continue
+- tapOn: "Next"
+
+# Step 2: Input the security PIN
+# PIN input (Pinput widget) will be active. We enter the default staging PIN "2123"
+- assertVisible: "Security PIN"
+- inputText: "2123"
+
+# Tap "Login" to authenticate
+- tapOn: "Login"

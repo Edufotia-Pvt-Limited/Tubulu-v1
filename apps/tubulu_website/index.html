@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tubulu — Class (A) Premium Local Commerce Suite</title>
+  <meta name="description" content="Tubulu is next-generation conversational commerce for India. Voice AI ordering, merchant admin portal, automated KYC, and 3-way logistics coordination. Class A marketplace infrastructure.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════════════════════ -->
+  <header class="header" id="top">
+    <div class="header__inner">
+      <div class="header__left">
+        <button class="nav-burger" id="menuToggle" aria-label="Open navigation">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+        <button class="nav-fav" id="favTrigger" aria-label="View favourites">
+          <svg class="fav-heart" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 17.5S1.25 12.5 1.25 6.875A4.375 4.375 0 0 1 10 4.453a4.375 4.375 0 0 1 8.75 2.422C18.75 12.5 10 17.5 10 17.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+          <span class="fav-count" id="favCount"></span>
+        </button>
+      </div>
+      <div class="header__center">
+        <span class="header__tagline">THE ARCHITECTURE OF DIALOGUE</span>
+      </div>
+      <div class="header__right">
+        <a href="#modules" class="btn-cta">Choose a module</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FULLSCREEN NAV OVERLAY
+  ══════════════════════════════════════════════════════════ -->
+  <div class="nav-overlay" id="navOverlay">
+    <div class="nav-overlay__inner">
+      <div class="nav-overlay__header">
+        <div class="header__left">
+          <button class="nav-burger active" id="menuClose" aria-label="Close navigation">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+          <button class="nav-fav" aria-label="Favourites">
+            <svg class="fav-heart" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 17.5S1.25 12.5 1.25 6.875A4.375 4.375 0 0 1 10 4.453a4.375 4.375 0 0 1 8.75 2.422C18.75 12.5 10 17.5 10 17.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="header__center">
+          <span class="header__tagline">THE ARCHITECTURE OF DIALOGUE</span>
+        </div>
+        <div class="header__right">
+          <a href="#modules" class="btn-cta">Choose a module</a>
+        </div>
+      </div>
+      <div class="nav-overlay__body">
+        <nav class="nav-menu">
+          <ul>
+            <li><a href="#about"       class="nav-link" data-num="01">About the project</a></li>
+            <li><a href="#platform"    class="nav-link" data-num="02">Platform &amp; Apps</a></li>
+            <li><a href="#ecosystem"   class="nav-link" data-num="03">National Ecosystem</a></li>
+            <li><a href="#modules"     class="nav-link" data-num="04">Choose a module</a></li>
+            <li><a href="#performance" class="nav-link" data-num="05">Admin Portal</a></li>
+            <li><a href="#contact"     class="nav-link" data-num="06">Contact &amp; Demo</a></li>
+          </ul>
+        </nav>
+        <div class="nav-info">
+          <div class="nav-info__block">
+            <h5>National Infrastructure</h5>
+            <p>Available across all major Indian metros and Tier-2 cities</p>
+          </div>
+          <div class="nav-info__block">
+            <h5>Developer Resources</h5>
+            <p><a href="#">Architecture Docs →</a></p>
+            <p><a href="#">Voice Commerce Blueprint →</a></p>
+          </div>
+          <p class="nav-copy">© 2026 Tubulu Group</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HERO — "The architecture of dialogue" with app preview
+  ══════════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg-letters" aria-hidden="true">
+      <span>T</span><span>U</span><span>B</span><span>U</span><span>L</span><span>U</span>
+    </div>
+
+    <div class="hero__grid">
+      <!-- Left: 3D tower visualization exact replica of aircenter -->
+      <div class="hero__visual">
+        <div class="hero__tower" id="towerWrap">
+          <div class="tower__axis"></div>
+          <div class="tower__slabs" id="towerSlabs"></div>
+        </div>
+      </div>
+
+      <!-- Right: stacked label + description -->
+      <div class="hero__content">
+        <div class="hero__stacked-label">
+          <span>CLASS (A)</span>
+          <span>PREMIUM LOCAL</span>
+          <span>COMMERCE SUITE</span>
+        </div>
+        <div class="hero__body">
+          <p>Tubulu is next-generation conversational commerce software — voice AI ordering, merchant administration portal, automated KYC onboarding, and three-way logistics coordination, all in one platform.</p>
+          <a href="#about" class="btn-ghost">About the project</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 1 — Vision
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section sec-white" id="about">
+    <div class="wrap wrap--2col">
+      <div class="pitch__left reveal">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title">The momentum<br>to scale higher</h2>
+      </div>
+      <div class="pitch__right reveal" style="transition-delay:0.15s;">
+        <p class="lead">Tubulu is a new generation of local commerce software that brings a new level of premium quality and speed to regional operations across India.</p>
+        <p>Efficient voice workflows, automated document audits, integrated checkout pipelines, and real-time logistics coordination set a new benchmark for commerce infrastructure. At this level, Tubulu has no competitors.</p>
+        <a href="#platform" class="btn-arrow">About the platform →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 2 — Horizontal Slider 
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section sec-grey" id="platform">
+    <div class="wrap">
+      <div class="sec-header reveal">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">A new premium format</h2>
+        <p class="sec-desc">Three client apps reflect the dynamic flow of local transactions — a customer voice app, merchant admin portal, and enabler logistics hub — all communicating with a central backend core.</p>
+      </div>
+
+      <div class="hslider reveal" style="transition-delay:0.15s;">
+        <div class="hslider__track" id="sliderTrack">
+
+          <!-- Slide 1 -->
+          <div class="hslide">
+            <div class="hslide__inner">
+              <span class="hslide__num">1  /  3</span>
+              <div class="hslide__img">
+                <img src="/images/tubulu_mobile_screens.png" alt="Tubulu Customer Voice App">
+              </div>
+              <h3 class="hslide__title">Customer Voice Interface</h3>
+              <p class="hslide__body">The Tubulu Flutter app puts voice ordering at the centre. Customers browse local merchants, tap the microphone, and speak their order — the AI agent confirms, carts, and checks out in seconds.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="hslide">
+            <div class="hslide__inner">
+              <span class="hslide__num">2  /  3</span>
+              <div class="hslide__img">
+                <img src="/images/tubulu_admin_dashboard.png" alt="Tubulu Merchant Admin Portal">
+              </div>
+              <h3 class="hslide__title">Merchant Administration</h3>
+              <p class="hslide__body">The React admin portal gives merchants and super-admins full visibility. The dashboard surfaces live order counts, active merchants, AI conversation volume, and revenue — all in real time.</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="hslide">
+            <div class="hslide__inner">
+              <span class="hslide__num">3  /  3</span>
+              <div class="hslide__img hslide__img--overlay">
+                <img src="/images/app_conversations.png" alt="Conversations and Campaigns">
+                <div class="hslide__img-label">
+                  <h4>AI Telephony Core</h4>
+                  <p>Real-time speech synthesis and WebSocket streaming.</p>
+                </div>
+              </div>
+              <h3 class="hslide__title">Conversational AI</h3>
+              <p class="hslide__body">Behind every order is a sophisticated telephony engine handling bidirectional speech streaming, mapped securely via our unified API architecture.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="hslider__controls">
+          <span class="hslider__counter" id="sliderCounter">1  /  3</span>
+          <div class="hslider__arrows">
+            <button class="arrow-btn" id="slidePrev" aria-label="Previous">←</button>
+            <button class="arrow-btn" id="slideNext" aria-label="Next">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 3 — Large quote
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section sec-white sec-quote">
+    <div class="wrap wrap--center">
+      <div class="reveal">
+        <h2 class="quote-title">An intelligent harmony<br>of voice AI and trust metrics</h2>
+        <a href="#modules" class="btn-arrow">Choose a module →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 4 — Ecosystem
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section sec-grey" id="ecosystem">
+    <div class="wrap wrap--2col">
+      <div class="eco__left reveal">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">At the center.<br>At the heart<br>of commerce.</h2>
+        <p class="sec-body">Tubulu's national network ensures a high-velocity, highly responsive commerce ecosystem. Our infrastructure allows local merchants across India to enjoy rapid order processing.</p>
+
+        <ul class="prox-list">
+          <li class="prox-item">
+            <div class="prox-item__num">
+              <span class="prox-big">1</span>
+              <span class="prox-unit">sec</span>
+            </div>
+            <span class="prox-label">Sarvam AI Voice Response</span>
+          </li>
+          <li class="prox-item">
+            <div class="prox-item__num">
+              <span class="prox-big">3</span>
+              <span class="prox-unit">min</span>
+            </div>
+            <span class="prox-label">Automated KYC Audit</span>
+          </li>
+          <li class="prox-item">
+            <div class="prox-item__num">
+              <span class="prox-big">7</span>
+              <span class="prox-unit">min</span>
+            </div>
+            <span class="prox-label">Courier Match &amp; Dispatch</span>
+          </li>
+          <li class="prox-item">
+            <div class="prox-item__num">
+              <span class="prox-big">11</span>
+              <span class="prox-unit">min</span>
+            </div>
+            <span class="prox-label">Payout Reconciliation</span>
+          </li>
+        </ul>
+
+        <button class="btn-ghost" id="mapBtn">Interactive map</button>
+      </div>
+
+      <div class="eco__right reveal" style="transition-delay:0.2s;">
+        <div class="eco-card">
+          <img src="/images/tubulu_enabler_app.png" alt="Tubulu Enabler App" class="eco-card__img">
+          <div class="eco-card__caption">
+            <h4>Live Delivery Network</h4>
+            <p>Enablers across India accept, navigate, and confirm deliveries via the Enabler App.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 5 — Performance
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section sec-white" id="performance">
+    <div class="wrap wrap--2col">
+      <div class="perf__left reveal">
+        <span class="sec-num">04</span>
+        <h2 class="sec-title">Designed with<br>merchants in mind</h2>
+      </div>
+
+      <div class="perf__right reveal" style="transition-delay:0.15s;">
+        <p class="lead">The Tubulu Admin Portal celebrates freedom and self-sufficiency. Merchant owners control every aspect of their commerce operation from a single dashboard.</p>
+        <p>From Catalogue management and AI Playbooks to Branch coordinates and Commissions — every module is a click away.</p>
+
+        <div class="perf-images" id="perfImages">
+          <div class="perf-img perf-img--active">
+            <img src="/images/app_active_users.png" alt="Admin Portal Active Users">
+          </div>
+          <div class="perf-img">
+            <img src="/images/app_campaigns.png" alt="Admin Portal Campaigns">
+          </div>
+          <div class="perf-img-controls">
+            <button class="perf-dot perf-dot--active" data-idx="0"></button>
+            <button class="perf-dot" data-idx="1"></button>
+            <span class="perf-counter" id="perfCounter">1 / 2</span>
+          </div>
+        </div>
+
+        <div class="perf-desc-cards">
+          <p>The admin portal's module architecture mirrors Tubulu's backend schema. Each module maps directly to a PostgreSQL table and a set of REST API endpoints in the Node.js backend.</p>
+          <p>Powered by React + Vite + Tailwind, the portal delivers sub-100ms UI transitions with optimistic updates.</p>
+        </div>
+
+        <a href="#modules" class="btn-arrow">Explore the module selector →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 6 — Module Chooser
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section sec-grey" id="modules">
+    <div class="wrap">
+      <div class="modules-header reveal">
+        <span class="sec-num">05</span>
+        <h2 class="sec-title">Choose a module</h2>
+        <div class="module-tabs">
+          <button class="tab-btn tab-btn--active" data-tab="params">By parameters</button>
+          <button class="tab-btn" data-tab="plan">On the architectural plan</button>
+        </div>
+      </div>
+
+      <!-- TAB 1: By Parameters -->
+      <div class="tab-panel tab-panel--active" id="panel-params">
+        <div class="modules-layout">
+          <aside class="modules-filters reveal">
+            <div class="filter-group">
+              <h5 class="filter-title">Vertical Categories</h5>
+              <label class="filter-check"><input type="checkbox" value="fb" checked> Food &amp; Beverage</label>
+              <label class="filter-check"><input type="checkbox" value="grocery" checked> Grocery</label>
+              <label class="filter-check"><input type="checkbox" value="retail" checked> Retail &amp; Electronics</label>
+            </div>
+            <div class="filter-group">
+              <h5 class="filter-title">Protocol Channel</h5>
+              <label class="filter-check"><input type="checkbox" value="rest" checked> REST HTTP Endpoints</label>
+              <label class="filter-check"><input type="checkbox" value="ws" checked> WebSocket Telephony</label>
+            </div>
+            <div class="filter-group">
+              <h5 class="filter-title">Infrastructure Core</h5>
+              <label class="filter-check"><input type="checkbox" value="postgres" checked> PostgreSQL Schema</label>
+              <label class="filter-check"><input type="checkbox" value="redis" checked> Redis &amp; BullMQ Queues</label>
+            </div>
+          </aside>
+
+          <div class="modules-grid reveal" style="transition-delay:0.15s;" id="modulesGrid">
+            <div class="mod-card" data-verticals="fb,grocery,retail" data-protocols="rest" data-infra="postgres,redis">
+              <div class="mod-card__top">
+                <span class="mod-num">01 // IDENTITY</span>
+                <button class="btn-bookmark" aria-label="Save module">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2z"/></svg>
+                </button>
+              </div>
+              <h3 class="mod-title">Identity, Auth &amp; Core Infrastructure</h3>
+              <p class="mod-body">OTP-based registration, device token management, Redis session connectors.</p>
+              <span class="mod-tag">mod-auth-core</span>
+            </div>
+
+            <div class="mod-card" data-verticals="fb,grocery,retail" data-protocols="rest" data-infra="postgres">
+              <div class="mod-card__top">
+                <span class="mod-num">02 // KYC</span>
+                <button class="btn-bookmark" aria-label="Save module">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2z"/></svg>
+                </button>
+              </div>
+              <h3 class="mod-title">Merchant Onboarding &amp; KYC Pipeline</h3>
+              <p class="mod-body">Business registrations, automated PAN/GSTIN document audits, trust score calculation.</p>
+              <span class="mod-tag">mod-merchant-kyc</span>
+            </div>
+
+            <div class="mod-card" data-verticals="fb,grocery" data-protocols="rest" data-infra="postgres">
+              <div class="mod-card__top">
+                <span class="mod-num">03 // PERSONA</span>
+                <button class="btn-bookmark" aria-label="Save module">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2z"/></svg>
+                </button>
+              </div>
+              <h3 class="mod-title">AI Playbooks &amp; Persona Engine</h3>
+              <p class="mod-body">No-code editor for merchant AI persona — vocabulary, tone, greeting templates.</p>
+              <span class="mod-tag">mod-ai-playbooks</span>
+            </div>
+
+            <div class="mod-card" data-verticals="fb,grocery,retail" data-protocols="rest" data-infra="postgres">
+              <div class="mod-card__top">
+                <span class="mod-num">04 // CATALOG</span>
+                <button class="btn-bookmark" aria-label="Save module">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2z"/></svg>
+                </button>
+              </div>
+              <h3 class="mod-title">Catalogue &amp; Custom Inventory</h3>
+              <p class="mod-body">SKU listings, subcategories, product attributes, and real-time inventory levels.</p>
+              <span class="mod-tag">mod-inventory</span>
+            </div>
+
+            <div class="mod-card" data-verticals="fb,grocery" data-protocols="ws" data-infra="postgres,redis">
+              <div class="mod-card__top">
+                <span class="mod-num">05 // TELEPHONY</span>
+                <button class="btn-bookmark" aria-label="Save module">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2z"/></svg>
+                </button>
+              </div>
+              <h3 class="mod-title">Conversational AI Agent Core</h3>
+              <p class="mod-body">Sarvam AI speech synthesis &amp; recognition over WebSocket streams.</p>
+              <span class="mod-tag">mod-conversational-ai</span>
+            </div>
+
+            <div class="mod-card" data-verticals="fb,grocery,retail" data-protocols="rest" data-infra="postgres,redis">
+              <div class="mod-card__top">
+                <span class="mod-num">06 // TRANSACTION</span>
+                <button class="btn-bookmark" aria-label="Save module">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2z"/></svg>
+                </button>
+              </div>
+              <h3 class="mod-title">Checkout &amp; Booking Engine</h3>
+              <p class="mod-body">Payment gateways, cart management, transaction history, courier tracking.</p>
+              <span class="mod-tag">mod-checkout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Architectural Plan -->
+      <div class="tab-panel" id="panel-plan">
+        <div class="plan-layout">
+          <div class="plan-map reveal">
+            <svg viewBox="0 0 500 500" class="plan-svg" id="planSvg">
+              <defs>
+                <pattern id="dotgrid" width="25" height="25" patternUnits="userSpaceOnUse">
+                  <circle cx="1" cy="1" r="1" fill="rgba(0,0,0,0.06)"/>
+                </pattern>
+              </defs>
+              <rect width="500" height="500" fill="url(#dotgrid)"/>
+              <circle cx="250" cy="250" r="48" class="plan-node plan-node--core" id="node-db"/>
+              <text x="250" y="247" text-anchor="middle" class="plan-label plan-label--core">POSTGRES</text>
+              <text x="250" y="261" text-anchor="middle" class="plan-label plan-label--sub">DB CORE</text>
+              <line x1="250" y1="202" x2="250" y2="115" class="plan-edge"/>
+              <line x1="284" y1="220" x2="385" y2="158" class="plan-edge"/>
+              <line x1="284" y1="280" x2="385" y2="342" class="plan-edge"/>
+              <line x1="250" y1="298" x2="250" y2="385" class="plan-edge"/>
+              <line x1="216" y1="280" x2="115" y2="342" class="plan-edge"/>
+              <line x1="216" y1="220" x2="115" y2="158" class="plan-edge"/>
+              <circle cx="250" cy="90" r="34" class="plan-node" data-nid="mod-auth-core"/>
+              <text x="250" y="94" text-anchor="middle" class="plan-label">AUTH</text>
+              <circle cx="395" cy="148" r="34" class="plan-node" data-nid="mod-merchant-kyc"/>
+              <text x="395" y="152" text-anchor="middle" class="plan-label">KYC</text>
+              <circle cx="395" cy="352" r="34" class="plan-node" data-nid="mod-ai-playbooks"/>
+              <text x="395" y="356" text-anchor="middle" class="plan-label">PLAY</text>
+              <circle cx="250" cy="410" r="34" class="plan-node" data-nid="mod-inventory"/>
+              <text x="250" y="414" text-anchor="middle" class="plan-label">CATALOG</text>
+              <circle cx="105" cy="352" r="34" class="plan-node" data-nid="mod-conversational-ai"/>
+              <text x="105" y="356" text-anchor="middle" class="plan-label">VOICE</text>
+              <circle cx="105" cy="148" r="34" class="plan-node" data-nid="mod-checkout"/>
+              <text x="105" y="152" text-anchor="middle" class="plan-label">CHECKOUT</text>
+            </svg>
+          </div>
+          <div class="plan-spec reveal" style="transition-delay:0.2s;" id="specPanel">
+            <div class="spec-card">
+              <span class="spec-hint" id="specHint">SELECT A NODE</span>
+              <h3 class="spec-title" id="specTitle">Monolith Schema Map</h3>
+              <p class="spec-body" id="specBody">Click any node on the architectural diagram to review detailed backend routes, database models, and admin portal UI mappings.</p>
+              <div class="spec-details" id="specDetails" style="display:none;">
+                <div class="spec-row">
+                  <h6>Backend Routes</h6>
+                  <code id="specRoutes"></code>
+                </div>
+                <div class="spec-row">
+                  <h6>Database Model</h6>
+                  <code id="specModel"></code>
+                </div>
+                <div class="spec-row">
+                  <h6>Admin Portal Section</h6>
+                  <code id="specUI"></code>
+                </div>
+                <button class="btn-solid btn-solid--full" id="specBookmarkBtn" style="margin-top:1.5rem;">Bookmark this module</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 7 — Contact
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section sec-white" id="contact">
+    <div class="wrap wrap--2col">
+      <div class="contact__left reveal">
+        <span class="sec-num">06</span>
+        <h2 class="sec-title">Request a call</h2>
+        <p class="sec-body">By clicking the "Call me back" button, you consent to the processing of your personal data.</p>
+        <div class="contact-info">
+          <p><strong>Headquarters:</strong> Bangalore, India</p>
+          <p><strong>Network Coverage:</strong> Pan-India — all major metros and Tier-2 cities</p>
+        </div>
+      </div>
+      <div class="contact__right reveal" style="transition-delay:0.15s;">
+        <form class="contact-form" id="contactForm">
+          <h3 class="form-title">Call me back</h3>
+          <div class="field-wrap">
+            <input type="text" id="f-name" required placeholder=" ">
+            <label for="f-name">Your name</label>
+          </div>
+          <div class="field-wrap">
+            <input type="tel" id="f-phone" required placeholder=" ">
+            <label for="f-phone">Phone number</label>
+          </div>
+          <div class="field-wrap">
+            <input type="email" id="f-email" placeholder=" ">
+            <label for="f-email">Email address</label>
+          </div>
+          <label class="consent-check">
+            <input type="checkbox" id="f-consent" required>
+            By clicking "Call me back", you <a href="#">consent</a> to the processing of <a href="#">your personal data</a>
+          </label>
+          <button type="submit" class="btn-solid btn-solid--full">Call me back</button>
+        </form>
+        <div class="form-thanks" id="formThanks">
+          <div class="thanks-icon">✓</div>
+          <h3>Thank you!</h3>
+          <p>We've received your request and will contact you shortly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="/images/tubulu_logo.png" alt="Tubulu" class="footer__logo">
+          <span class="footer__name">TUBULU</span>
+        </div>
+        <div class="footer__nav-grid">
+          <div class="footer__col">
+            <h5>About Project</h5>
+            <a href="#about">About Tubulu</a>
+            <a href="#platform">Platform &amp; Apps</a>
+            <a href="#ecosystem">National Ecosystem</a>
+          </div>
+          <div class="footer__col">
+            <h5>The Apps</h5>
+            <a href="#platform">Customer App</a>
+            <a href="#platform">Merchant Portal</a>
+            <a href="#ecosystem">Enabler Hub</a>
+          </div>
+          <div class="footer__col">
+            <h5>Legal</h5>
+            <a href="#">Privacy Policy</a>
+            <a href="#">User Agreement</a>
+          </div>
+          <div class="footer__col footer__col--cta">
+            <a href="#modules" class="footer-cta-link">Choose a<br>module</a>
+            <a href="#contact" class="footer-cta-link">Request a<br>call</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Tubulu Group. ANY INFORMATION PROVIDED ON THIS WEBSITE IS FOR INFORMATIONAL PURPOSES ONLY AND UNDER NO CIRCUMSTANCES CONSTITUTES A PUBLIC OFFER.</p>
+        <p class="footer__credit">Website replica of aircenter.space</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FAVOURITES DRAWER
+  ══════════════════════════════════════════════════════════ -->
+  <div class="drawer" id="favDrawer">
+    <div class="drawer__overlay" id="favOverlay"></div>
+    <div class="drawer__panel">
+      <div class="drawer__head">
+        <h3>Favourites (<span id="drawerCount">0</span>)</h3>
+        <button class="btn-close-x" id="drawerClose">×</button>
+      </div>
+      <div class="drawer__body">
+        <p class="drawer__empty" id="drawerEmpty">Your selected modules will appear here.</p>
+        <ul class="drawer__list" id="drawerList"></ul>
+        <div class="drawer__actions" id="drawerActions" style="display:none;">
+          <button class="btn-ghost drawer__send-btn" id="drawerSendBtn">Send by email</button>
+          <a href="#" class="btn-solid">Save favourites</a>
+        </div>
+      </div>
+      <div class="drawer__email-form" id="drawerEmailForm" style="display:none;">
+        <h4>Send by email</h4>
+        <form id="favEmailForm">
+          <div class="field-wrap">
+            <input type="email" id="fav-email" required placeholder=" ">
+            <label for="fav-email">Your email</label>
+          </div>
+          <label class="consent-check">
+            <input type="checkbox" required>
+            By clicking "Send", you <a href="#">consent</a> to the processing of <a href="#">your personal data</a>
+          </label>
+          <button type="submit" class="btn-solid btn-solid--full">Send</button>
+        </form>
+        <p class="fav-sent" id="favSent">The module list has been sent by email.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       MAP MODAL
+  ══════════════════════════════════════════════════════════ -->
+  <div class="modal" id="mapModal">
+    <div class="modal__overlay" id="mapOverlay"></div>
+    <div class="modal__box">
+      <div class="modal__head">
+        <h3>National Commerce Network</h3>
+        <button class="btn-close-x" id="mapClose">×</button>
+      </div>
+      <div class="modal__body">
+        <p>Pan-India retail coordination grid. Pulsing nodes represent active Tubulu commerce networks.</p>
+        <div class="india-map">
+          <svg viewBox="0 0 400 460" class="india-svg">
+            <line x1="195" y1="108" x2="108" y2="242" class="map-line"/>
+            <line x1="195" y1="108" x2="325" y2="198" class="map-line"/>
+            <line x1="195" y1="108" x2="210" y2="278" class="map-line"/>
+            <line x1="108" y1="242" x2="210" y2="278" class="map-line"/>
+            <line x1="108" y1="242" x2="178" y2="358" class="map-line"/>
+            <line x1="325" y1="198" x2="210" y2="278" class="map-line"/>
+            <line x1="210" y1="278" x2="178" y2="358" class="map-line"/>
+            <line x1="210" y1="278" x2="218" y2="382" class="map-line"/>
+            <line x1="178" y1="358" x2="218" y2="382" class="map-line"/>
+            <g class="map-node" data-hub="North Zone Hub — Delhi NCR">
+              <circle cx="195" cy="108" r="20" class="map-node__area"/>
+              <circle cx="195" cy="108" r="6" class="map-node__dot"/>
+              <circle cx="195" cy="108" r="14" class="map-node__pulse"/>
+              <text x="195" y="90" class="map-node__lbl">DELHI</text>
+            </g>
+            <g class="map-node" data-hub="West Zone Hub — Mumbai Metro">
+              <circle cx="108" cy="242" r="20" class="map-node__area"/>
+              <circle cx="108" cy="242" r="6" class="map-node__dot"/>
+              <circle cx="108" cy="242" r="14" class="map-node__pulse"/>
+              <text x="68" y="248" class="map-node__lbl">MUMBAI</text>
+            </g>
+            <g class="map-node" data-hub="East Zone Hub — Kolkata Network">
+              <circle cx="325" cy="198" r="20" class="map-node__area"/>
+              <circle cx="325" cy="198" r="6" class="map-node__dot"/>
+              <circle cx="325" cy="198" r="14" class="map-node__pulse"/>
+              <text x="336" y="204" class="map-node__lbl">KOLKATA</text>
+            </g>
+            <g class="map-node" data-hub="Central Zone Hub — Hyderabad Grid">
+              <circle cx="210" cy="278" r="20" class="map-node__area"/>
+              <circle cx="210" cy="278" r="6" class="map-node__dot"/>
+              <circle cx="210" cy="278" r="14" class="map-node__pulse"/>
+              <text x="222" y="284" class="map-node__lbl">HYDERABAD</text>
+            </g>
+            <g class="map-node" data-hub="Southern HQ — Bangalore Central">
+              <circle cx="178" cy="358" r="20" class="map-node__area"/>
+              <circle cx="178" cy="358" r="6" class="map-node__dot"/>
+              <circle cx="178" cy="358" r="14" class="map-node__pulse"/>
+              <text x="132" y="365" class="map-node__lbl">BANGALORE</text>
+            </g>
+            <g class="map-node" data-hub="South-East Coast Hub — Chennai Network">
+              <circle cx="218" cy="382" r="20" class="map-node__area"/>
+              <circle cx="218" cy="382" r="6" class="map-node__dot"/>
+              <circle cx="218" cy="382" r="14" class="map-node__pulse"/>
+              <text x="230" y="400" class="map-node__lbl">CHENNAI</text>
+            </g>
+          </svg>
+          <div class="map-tooltip" id="mapTooltip">Hover over a node</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie bar -->
+  <div class="cookie-bar" id="cookieBar">
+    <p>This website uses <a href="#">cookies</a></p>
+    <button class="btn-solid" id="cookieAccept">Accept</button>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

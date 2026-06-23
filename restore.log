@@ -1,0 +1,836 @@
+SET
+SET
+SET
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+psql:backups/tubulu_db_backup_20260604.sql:25: ERROR:  extension "vector" is not available
+DETAIL:  Could not open extension control file "/opt/homebrew/opt/postgresql@15/share/postgresql@15/extension/vector.control": No such file or directory.
+HINT:  The extension must first be installed on the system where PostgreSQL is running.
+psql:backups/tubulu_db_backup_20260604.sql:32: ERROR:  extension "vector" does not exist
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+CREATE TYPE
+ALTER TYPE
+SET
+SET
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:596: ERROR:  type "public.vector" does not exist
+LINE 10:     embedding public.vector(768)
+                       ^
+psql:backups/tubulu_db_backup_20260604.sql:599: ERROR:  relation "public.EmbeddingChunks" does not exist
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+COMMENT
+COMMENT
+COMMENT
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+COPY 4
+COPY 0
+COPY 5
+COPY 0
+COPY 0
+COPY 0
+COPY 0
+COPY 57
+COPY 28
+COPY 99
+COPY 9
+COPY 352
+COPY 1
+COPY 0
+COPY 2
+psql:backups/tubulu_db_backup_20260604.sql:1927: ERROR:  relation "public.EmbeddingChunks" does not exist
+psql:backups/tubulu_db_backup_20260604.sql:2388: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2389: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2390: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2391: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2392: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2393: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2394: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2395: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2396: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2397: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2398: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2399: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2400: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2401: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2402: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2403: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2404: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2405: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2406: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2407: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2408: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2409: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2410: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2411: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2412: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2419: ERROR:  trailing junk after numeric literal at or near "300114f3"
+LINE 1: 300114f3-d508-402a-857c-7e37c8962e1b product 6cf6333e-b84b-4...
+        ^
+psql:backups/tubulu_db_backup_20260604.sql:2442: error: backslash commands are restricted; only \unrestrict is allowed
+psql:backups/tubulu_db_backup_20260604.sql:2449: ERROR:  trailing junk after numeric literal at or near "4834f30d"
+LINE 1: 4834f30d-8941-4367-9ca3-99324daa15bd 50cd5c6a-c4b0-4185-87c5...
+        ^
+psql:backups/tubulu_db_backup_20260604.sql:2450: error: backslash commands are restricted; only \unrestrict is allowed
+COPY 57
+COPY 0
+COPY 1
+COPY 29
+COPY 385
+COPY 1
+COPY 0
+COPY 78
+COPY 3
+COPY 36
+COPY 6
+COPY 4
+COPY 4
+COPY 1
+COPY 0
+COPY 81
+COPY 5
+COPY 3
+COPY 0
+COPY 0
+COPY 0
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:5536: ERROR:  relation "public.EmbeddingChunks" does not exist
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+psql:backups/tubulu_db_backup_20260604.sql:7618: ERROR:  relation "public.EmbeddingChunks" does not exist
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:7732: ERROR:  insert or update on table "Advertisements" violates foreign key constraint "Advertisements_integrationId_fkey"
+DETAIL:  Key (integrationId)=(908fa830-7d67-4555-8d3b-a72b20636d44) is not present in table "Integrations".
+ALTER TABLE
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:7756: ERROR:  insert or update on table "Carts" violates foreign key constraint "Carts_integrationId_fkey"
+DETAIL:  Key (integrationId)=(908fa830-7d67-4555-8d3b-a72b20636d44) is not present in table "Integrations".
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:7772: ERROR:  insert or update on table "Catalogues" violates foreign key constraint "Catalogues_integrationId_fkey"
+DETAIL:  Key (integrationId)=(0bfbb67d-2547-4106-a876-ad0db8a8af88) is not present in table "Integrations".
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:7788: ERROR:  insert or update on table "ChatRooms" violates foreign key constraint "ChatRooms_integrationId_fkey"
+DETAIL:  Key (integrationId)=(02fbbc13-b593-4e16-ac3c-2ae4dc2844f4) is not present in table "Integrations".
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:7820: ERROR:  insert or update on table "Deals" violates foreign key constraint "Deals_integrationId_fkey"
+DETAIL:  Key (integrationId)=(09dacbba-d0e7-4862-8a77-e8bded1ea387) is not present in table "Integrations".
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:7908: ERROR:  insert or update on table "Orders" violates foreign key constraint "Orders_integrationId_fkey"
+DETAIL:  Key (integrationId)=(908fa830-7d67-4555-8d3b-a72b20636d44) is not present in table "Integrations".
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:7940: ERROR:  insert or update on table "PhoneBookGroups" violates foreign key constraint "PhoneBookGroups_integrationId_fkey"
+DETAIL:  Key (integrationId)=(09dacbba-d0e7-4862-8a77-e8bded1ea387) is not present in table "Integrations".
+psql:backups/tubulu_db_backup_20260604.sql:7948: ERROR:  insert or update on table "PhoneBooks" violates foreign key constraint "PhoneBooks_integrationId_fkey"
+DETAIL:  Key (integrationId)=(908fa830-7d67-4555-8d3b-a72b20636d44) is not present in table "Integrations".
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:7980: ERROR:  insert or update on table "Products" violates foreign key constraint "Products_integrationId_fkey"
+DETAIL:  Key (integrationId)=(f1665785-dab5-4a4b-a543-109b62e9af4a) is not present in table "Integrations".
+psql:backups/tubulu_db_backup_20260604.sql:7988: ERROR:  insert or update on table "Reviews" violates foreign key constraint "Reviews_integrationId_fkey"
+DETAIL:  Key (integrationId)=(908fa830-7d67-4555-8d3b-a72b20636d44) is not present in table "Integrations".
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:8004: ERROR:  insert or update on table "Settlements" violates foreign key constraint "Settlements_integrationId_fkey"
+DETAIL:  Key (integrationId)=(6c858926-3ba4-4c6c-9cce-e134b4a77a20) is not present in table "Integrations".
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:8052: ERROR:  insert or update on table "UserDealUsages" violates foreign key constraint "UserDealUsages_integrationId_fkey"
+DETAIL:  Key (integrationId)=(09dacbba-d0e7-4862-8a77-e8bded1ea387) is not present in table "Integrations".
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+psql:backups/tubulu_db_backup_20260604.sql:8100: ERROR:  insert or update on table "VendorAIConfigs" violates foreign key constraint "VendorAIConfigs_integrationId_fkey"
+DETAIL:  Key (integrationId)=(908fa830-7d67-4555-8d3b-a72b20636d44) is not present in table "Integrations".
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE

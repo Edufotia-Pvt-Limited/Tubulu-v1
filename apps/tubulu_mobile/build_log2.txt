@@ -1,0 +1,153 @@
+Launching lib/main.dart on sdk gphone64 arm64 in debug mode...
+Running Gradle task 'assembleDebug'...                              6.5s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...        1,375ms
+D/FlutterJNI( 7394): Beginning load of flutter...
+D/FlutterJNI( 7394): flutter (null) was loaded normally!
+I/flutter ( 7394): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+D/FlutterRenderer( 7394): Width is zero. 0,0
+Syncing files to device sdk gphone64 arm64...                   
+D/CompatChangeReporter( 7394): Compat change id reported: 377864165; UID 10228; state: ENABLED
+W/HWUI    ( 7394): Unknown dataspace 0
+Syncing files to device sdk gphone64 arm64...                      136ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on sdk gphone64 arm64 is available at: http://127.0.0.1:50140/RMj54N7lRcc=/
+The Flutter DevTools debugger and profiler on sdk gphone64 arm64 is available at: http://127.0.0.1:50140/RMj54N7lRcc=/devtools/?uri=ws://127.0.0.1:50140/RMj54N7lRcc=/ws
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+I/WindowExtensionsImpl( 7394): Initializing Window Extensions, vendor API level=9, activity embedding enabled=true
+D/VRI[MainActivity]( 7394): WindowInsets changed: 1080x2400 statusBars:[0,63,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,63,0,84] 
+D/FlutterRenderer( 7394): Width is zero. 0,0
+D/FlutterRenderer( 7394): Width is zero. 0,0
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/WindowLayoutComponentImpl( 7394): Register WindowLayoutInfoListener on Context=com.tubulu.tubulu_mobile.MainActivity@3a73989, of which baseContext=android.app.ContextImpl@4f5eda8
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/InsetsController( 7394): hide(ime())
+I/ImeTracker( 7394): com.tubulu.tubulu_mobile:dfefe760: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+I/u.tubulu_mobile( 7394): Compiler allocated 5145KB to compile void android.view.ViewRootImpl.performTraversals()
+D/ProfileInstaller( 7394): Installing profile for com.tubulu.tubulu_mobile
+W/u.tubulu_mobile( 7394): userfaultfd: MOVE ioctl seems unsupported: Connection timed out
+D/VRI[MainActivity]( 7394): visibilityChanged oldVisibility=true newVisibility=false
+D/ViewRootImpl( 7394): Skipping stats log for color mode
+D/InsetsController( 7394): hide(ime())
+I/ImeTracker( 7394): com.tubulu.tubulu_mobile:7fede51a: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+I/ImeTracker( 7394): com.tubulu.tubulu_mobile:ba4ee3fc: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+I/HWUI    ( 7394): Using FreeType backend (prop=Auto)
+D/InsetsController( 7394): show(ime())
+D/InsetsController( 7394): Setting requestedVisibleTypes to 511 (was 503)
+D/InputConnectionAdaptor( 7394): The input method toggled cursor monitoring on
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.view.ImeBackAnimationController@551cb9e
+W/InteractionJankMonitor( 7394): Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.tubulu.tubulu_mobile
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+I/ImeTracker( 7394): com.tubulu.tubulu_mobile:9dd59970: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController( 7394): show(ime())
+I/ImeTracker( 7394): com.tubulu.tubulu_mobile:9dd59970: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+I/ImeTracker( 7394): com.tubulu.tubulu_mobile:ba4ee3fc: onShown
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+I/ImeTracker( 7394): com.tubulu.tubulu_mobile:37670439: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController( 7394): show(ime())
+I/ImeTracker( 7394): com.tubulu.tubulu_mobile:37670439: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/InputConnectionAdaptor( 7394): The input method toggled cursor monitoring on
+I/ImeTracker( 7394): com.tubulu.tubulu_mobile:31fce9b0: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController( 7394): show(ime())
+I/ImeTracker( 7394): com.tubulu.tubulu_mobile:31fce9b0: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/InputConnectionAdaptor( 7394): The input method toggled cursor monitoring on
+I/ImeTracker( 7394): com.tubulu.tubulu_mobile:7ddbede: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+D/InsetsController( 7394): hide(ime())
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/InsetsController( 7394): Setting requestedVisibleTypes to 503 (was 511)
+D/CompatChangeReporter( 7394): Compat change id reported: 395521150; UID 10228; state: ENABLED
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+I/ImeTracker( 7394): system_server:43fcf72b: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/FlutterJNI( 7394): Sending viewport metrics to the engine.
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@cdec9c0
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@3fc155c
+D/VRI[MainActivity]( 7394): visibilityChanged oldVisibility=true newVisibility=false
+I/u.tubulu_mobile( 7394): Waiting for a blocking GC ProfileSaver
+I/u.tubulu_mobile( 7394): WaitForGcToComplete blocked ProfileSaver on CollectorTransition for 23.448ms
+D/WindowOnBackDispatcher( 7394): setTopOnBackInvokedCallback (unwrapped): null
+Lost connection to device.
