@@ -1,0 +1,124 @@
+
+> @minimal-kit/vite-ts@5.3.0 dev
+> vite
+
+
+  VITE v4.4.4  ready in 494 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+Browserslist: browsers data (caniuse-lite) is 9 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+12:36:53 PM [vite] hmr update /src/index.css, /src/pages/integration-create-account/integration-create-account.tsx, /src/pages/verify-phone-number/verify-phone-number.screen.tsx, /src/pages/integration-document-uploader/integration-document-uploader.tsx, /src/pages/tubulu-app-onboarding/tubbulu-app-onboarding.tsx, /src/pages/dashboard/manage-phonebook-groups.tsx, /src/pages/dashboard/manage-phonebook.tsx, /src/pages/dashboard/manage-broadcast-template.tsx, /src/pages/dashboard/manage-broadcast-campaign.tsx, /src/pages/dashboard/user-profile.tsx, /src/pages/dashboard/product.tsx, /src/pages/dashboard/CreateProduct.tsx, /src/pages/dashboard/EditProduct.tsx, /src/pages/dashboard/customer.tsx, /src/pages/dashboard/order.tsx, /src/pages/dashboard/create-new-template.tsx, /src/pages/dashboard/customization.tsx, /src/components/customer/customer-order.tsx, /src/pages/dashboard/deals.tsx, /src/pages/dashboard/customization-options.tsx, /src/pages/ApplyCusomization.tsx, /src/pages/dashboard/advertisement.tsx, /src/pages/ApplyDeals.tsx, /src/pages/dashboard/Payment.tsx, /src/pages/dashboard/manage-branches.tsx, /src/pages/dashboard/manage-QRcode.tsx, /src/pages/dashboard/superadmin-users.tsx, /src/pages/dashboard/merchants/details.tsx, /src/pages/dashboard/settlements.tsx, /src/auth/context/jwt/auth-provider.tsx, /src/layouts/dashboard/header.tsx, /src/sections/merchants/view/merchants-list-view.tsx, /src/sections/overview/analytics/view/super-admin-analytics-view.tsx, /src/sections/merchants/merchant-onboard-form.tsx, /src/sections/commissions/view/commissions-view.tsx, /src/sections/staff/view/staff-list-view.tsx, /src/sections/catalogue/view/catalogue-list-view.tsx, /src/sections/merchant/view/merchant-profile-view.tsx, /src/sections/ai-bot/view/ai-bot-view.tsx, /src/sections/merchants/merchant-details-drawer.tsx, /src/sections/ai-playbooks/view/ai-playbooks-view.tsx, /src/sections/staff/staff-new-dialog.tsx, /src/sections/chat/view/chat-view.tsx, /src/sections/chat/chat-message-input.tsx, /src/sections/chat/chat-nav-item.tsx, /src/sections/super-admin-settings/settings-ai.tsx, /src/layouts/dashboard/nav-vertical.tsx, /src/pages/dashboard/create-new-campaign.tsx, /src/pages/components/template-mockup.tsx, /src/sections/overview/app/view/overview-app-view.tsx, /src/sections/overview/analytics/view/overview-analytics-view.tsx, /src/sections/catalogue/catalogue-new-edit-dialog.tsx, /src/layouts/_common/account-popover.tsx, /src/sections/chat/chat-message-item.tsx, /src/sections/chat/chat-nav.tsx, /src/sections/chat/chat-room.tsx, /src/sections/chat/chat-message-list.tsx, /src/sections/chat/chat-message-item-type.tsx
+12:37:04 PM [vite] hmr update /src/sections/merchants/merchant-details-drawer.tsx, /src/index.css
+12:37:09 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+12:57:55 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+12:59:10 PM [vite] page reload dist/index.html
+1:00:14 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+1:00:23 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+1:01:49 PM [vite] page reload src/layouts/dashboard/super-admin-nav.tsx
+1:01:58 PM [vite] hmr update /src/layouts/dashboard/config-navigation.tsx, /src/index.css
+1:01:58 PM [vite] hmr invalidate /src/layouts/dashboard/config-navigation.tsx Could not Fast Refresh. Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+1:01:58 PM [vite] hmr update /src/index.css, /src/layouts/dashboard/layout.tsx, /src/layouts/dashboard/nav-mini.tsx, /src/layouts/dashboard/nav-vertical.tsx, /src/layouts/dashboard/nav-horizontal.tsx, /src/layouts/_common/searchbar/searchbar.tsx
+1:02:11 PM [vite] hmr update /src/routes/sections/index.tsx, /src/index.css
+1:02:21 PM [vite] hmr update /src/routes/sections/index.tsx, /src/index.css
+1:02:32 PM [vite] hmr update /src/routes/sections/index.tsx, /src/index.css
+1:02:53 PM [vite] page reload dist/index.html
+1:02:59 PM [vite] hmr update /src/pages/dashboard/ai-channels.tsx, /src/index.css
+1:02:59 PM [vite] hmr update /src/sections/ai-channels/ai-channel-item.tsx, /src/index.css
+1:02:59 PM [vite] hmr update /src/sections/ai-channels/view/ai-channels-view.tsx, /src/index.css
+1:02:59 PM [vite] hmr update /src/index.css, /src/pages/dashboard/ai-channels.tsx
+1:03:17 PM [vite] page reload dist/index.html
+3:32:17 PM [vite] hmr update /src/sections/account/account-general.tsx, /src/index.css
+3:32:28 PM [vite] hmr update /src/sections/account/account-general.tsx, /src/index.css
+3:33:24 PM [vite] hmr update /src/sections/account/account-general.tsx, /src/index.css
+3:44:03 PM [vite] hmr update /src/pages/dashboard/manage-QRcode.tsx, /src/index.css
+3:44:36 PM [vite] hmr update /src/pages/dashboard/manage-branches.tsx, /src/index.css
+3:51:29 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+3:51:39 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+3:51:53 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+7:11:52 PM [vite] hmr update /src/sections/super-admin-settings/settings-ai.tsx, /src/index.css
+7:54:11 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+7:54:38 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+8:12:56 PM [vite] hmr update /src/sections/account/account-general.tsx, /src/index.css
+8:13:13 PM [vite] hmr update /src/sections/account/account-general.tsx, /src/index.css
+8:13:25 PM [vite] hmr update /src/sections/account/account-general.tsx, /src/index.css
+8:15:37 PM [vite] hmr update /src/sections/account/account-general.tsx, /src/index.css
+8:15:47 PM [vite] hmr update /src/sections/account/account-general.tsx, /src/index.css
+8:15:59 PM [vite] hmr update /src/sections/account/account-general.tsx, /src/index.css
+8:17:31 PM [vite] hmr update /src/sections/account/account-general.tsx, /src/index.css
+8:20:14 PM [vite] hmr update /src/layouts/_common/account-popover.tsx, /src/index.css
+8:20:15 PM [vite] hmr update /src/layouts/_common/settings-button.tsx, /src/index.css
+8:23:11 PM [vite] hmr update /src/pages/dashboard/manage-branches.tsx, /src/index.css
+8:23:13 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+8:24:19 PM [vite] hmr update /src/pages/dashboard/manage-branches.tsx, /src/index.css
+8:24:21 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+8:35:57 PM [vite] hmr update /src/sections/merchants/merchant-onboard-form.tsx, /src/index.css
+8:35:59 PM [vite] hmr update /src/pages/dashboard/manage-branches.tsx, /src/index.css
+8:36:15 PM [vite] hmr update /src/pages/dashboard/EditProduct.tsx, /src/index.css
+8:36:23 PM [vite] hmr update /src/pages/dashboard/CreateProduct.tsx, /src/index.css
+8:36:35 PM [vite] hmr update /src/components/cusomization-option/modal/customization-add-option-modal.tsx, /src/index.css
+8:36:37 PM [vite] hmr update /src/components/cusomization-option/modal/edit-customization-option-modal.tsx, /src/index.css
+8:36:39 PM [vite] hmr update /src/components/customization/modal/customization-modal.tsx, /src/index.css
+8:38:39 PM [vite] hmr update /src/pages/dashboard/superadmin-users.tsx, /src/index.css
+8:38:41 PM [vite] hmr update /src/pages/dashboard/superadmin-users.tsx, /src/index.css
+9:14:53 PM [vite] hmr update /src/pages/dashboard/superadmin-users.tsx, /src/index.css
+9:15:06 PM [vite] hmr update /src/pages/dashboard/superadmin-users.tsx, /src/index.css
+9:19:54 PM [vite] hmr update /src/pages/dashboard/superadmin-users.tsx, /src/index.css
+9:22:51 PM [vite] page reload dist/index.html
+9:36:10 PM [vite] hmr update /src/sections/merchants/view/merchants-list-view.tsx, /src/index.css
+9:36:36 PM [vite] hmr update /src/sections/merchants/merchant-table-row.tsx, /src/index.css
+9:37:00 PM [vite] hmr update /src/sections/merchants/view/merchants-list-view.tsx, /src/index.css
+9:54:05 PM [vite] hmr update /src/index.css, /src/pages/verify-phone-number/verify-phone-number.screen.tsx, /src/pages/dashboard/superadmin-users.tsx, /src/pages/dashboard/merchants/details.tsx, /src/pages/dashboard/settlements.tsx, /src/auth/context/jwt/auth-provider.tsx, /src/layouts/dashboard/header.tsx, /src/sections/merchants/view/merchants-list-view.tsx, /src/sections/overview/analytics/view/super-admin-analytics-view.tsx, /src/sections/merchants/merchant-onboard-form.tsx, /src/sections/commissions/view/commissions-view.tsx, /src/sections/staff/view/staff-list-view.tsx, /src/sections/catalogue/view/catalogue-list-view.tsx, /src/sections/merchant/view/merchant-profile-view.tsx, /src/sections/ai-bot/view/ai-bot-view.tsx, /src/sections/merchants/merchant-details-drawer.tsx, /src/sections/ai-playbooks/view/ai-playbooks-view.tsx, /src/sections/staff/staff-new-dialog.tsx, /src/sections/chat/view/chat-view.tsx, /src/sections/chat/chat-message-input.tsx, /src/sections/chat/chat-nav-item.tsx, /src/sections/super-admin-settings/settings-ai.tsx, /src/sections/account/account-general.tsx
+9:54:10 PM [vite] page reload src/types/merchant.ts
+9:54:20 PM [vite] hmr update /src/sections/merchants/merchant-table-row.tsx, /src/index.css
+9:54:41 PM [vite] hmr update /src/sections/merchants/view/merchants-list-view.tsx, /src/index.css
+9:54:51 PM [vite] hmr update /src/sections/merchants/merchant-details-drawer.tsx, /src/index.css
+9:55:10 PM [vite] page reload dist/index.html
+10:01:43 PM [vite] hmr update /src/sections/merchants/view/merchants-list-view.tsx, /src/index.css
+10:02:12 PM [vite] hmr update /src/sections/merchants/view/merchants-list-view.tsx, /src/index.css
+10:03:41 PM [vite] hmr update /src/index.css, /src/pages/verify-phone-number/verify-phone-number.screen.tsx, /src/pages/dashboard/superadmin-users.tsx, /src/pages/dashboard/merchants/details.tsx, /src/pages/dashboard/settlements.tsx, /src/auth/context/jwt/auth-provider.tsx, /src/layouts/dashboard/header.tsx, /src/sections/merchants/view/merchants-list-view.tsx, /src/sections/overview/analytics/view/super-admin-analytics-view.tsx, /src/sections/merchants/merchant-onboard-form.tsx, /src/sections/commissions/view/commissions-view.tsx, /src/sections/staff/view/staff-list-view.tsx, /src/sections/catalogue/view/catalogue-list-view.tsx, /src/sections/merchant/view/merchant-profile-view.tsx, /src/sections/ai-bot/view/ai-bot-view.tsx, /src/sections/merchants/merchant-details-drawer.tsx, /src/sections/ai-playbooks/view/ai-playbooks-view.tsx, /src/sections/staff/staff-new-dialog.tsx, /src/sections/chat/view/chat-view.tsx, /src/sections/chat/chat-message-input.tsx, /src/sections/chat/chat-nav-item.tsx, /src/sections/super-admin-settings/settings-ai.tsx, /src/sections/account/account-general.tsx
+10:03:52 PM [vite] hmr update /src/sections/merchants/view/merchants-list-view.tsx, /src/index.css
+10:04:07 PM [vite] hmr update /src/sections/merchants/view/merchants-list-view.tsx, /src/index.css
+10:17:08 PM [vite] hmr update /src/pages/dashboard/superadmin-users.tsx, /src/index.css
+10:17:19 PM [vite] hmr update /src/pages/dashboard/merchants/details.tsx, /src/index.css
+10:17:25 PM [vite] hmr update /src/pages/dashboard/merchants/details.tsx, /src/index.css
+10:17:33 PM [vite] hmr update /src/pages/dashboard/merchants/details.tsx, /src/index.css
+10:17:40 PM [vite] hmr update /src/pages/dashboard/merchants/details.tsx, /src/index.css
+10:17:48 PM [vite] hmr update /src/sections/merchants/view/merchants-list-view.tsx, /src/index.css
+10:18:01 PM [vite] hmr update /src/sections/merchants/merchant-details-drawer.tsx, /src/index.css
+10:18:08 PM [vite] hmr update /src/sections/merchants/merchant-details-drawer.tsx, /src/index.css
+10:48:24 PM [vite] hmr update /src/pages/dashboard/superadmin-users.tsx, /src/index.css
+10:48:31 PM [vite] hmr update /src/pages/dashboard/superadmin-users.tsx, /src/index.css
+10:49:50 PM [vite] hmr update /src/sections/super-admin-settings/view/super-admin-settings-view.tsx, /src/index.css
+10:50:24 PM [vite] hmr update /src/sections/super-admin-settings/settings-ai.tsx, /src/index.css
+10:59:49 PM [vite] hmr update /src/pages/dashboard/order.tsx, /src/index.css
+10:59:55 PM [vite] hmr update /src/pages/dashboard/customer.tsx, /src/index.css
+12:23:02 PM [vite] hmr update /src/components/nav-section/vertical/nav-section-top.tsx, /src/index.css
+2:18:07 PM [vite] hmr update /src/index.css, /src/pages/verify-phone-number/verify-phone-number.screen.tsx, /src/pages/dashboard/superadmin-users.tsx, /src/pages/dashboard/merchants/details.tsx, /src/pages/dashboard/settlements.tsx, /src/auth/context/jwt/auth-provider.tsx, /src/layouts/dashboard/header.tsx, /src/sections/merchants/view/merchants-list-view.tsx, /src/sections/overview/analytics/view/super-admin-analytics-view.tsx, /src/sections/merchants/merchant-onboard-form.tsx, /src/sections/commissions/view/commissions-view.tsx, /src/sections/staff/view/staff-list-view.tsx, /src/sections/catalogue/view/catalogue-list-view.tsx, /src/sections/merchant/view/merchant-profile-view.tsx, /src/sections/ai-bot/view/ai-bot-view.tsx, /src/sections/merchants/merchant-details-drawer.tsx, /src/sections/ai-playbooks/view/ai-playbooks-view.tsx, /src/sections/staff/staff-new-dialog.tsx, /src/sections/chat/view/chat-view.tsx, /src/sections/chat/chat-message-input.tsx, /src/sections/chat/chat-nav-item.tsx, /src/sections/super-admin-settings/settings-ai.tsx, /src/sections/account/account-general.tsx, /src/sections/super-admin-settings/settings-general.tsx, /src/layouts/_common/login-button.tsx, /src/layouts/main/header.tsx, /src/auth/guard/role-based-guard.tsx, /src/layouts/_common/nav-upgrade.tsx, /src/sections/chat/chat-message-item.tsx, /src/layouts/main/footer.tsx, /src/layouts/_common/contacts-popover.tsx, /src/layouts/_common/notifications-popover/notifications-popover.tsx
+2:18:13 PM [vite] hmr update /src/index.css, /src/pages/integration-create-account/integration-create-account.tsx, /src/pages/verify-phone-number/verify-phone-number.screen.tsx, /src/pages/integration-document-uploader/integration-document-uploader.tsx, /src/pages/tubulu-app-onboarding/tubbulu-app-onboarding.tsx, /src/pages/dashboard/manage-phonebook-groups.tsx, /src/pages/dashboard/manage-phonebook.tsx, /src/pages/dashboard/manage-broadcast-template.tsx, /src/pages/dashboard/manage-broadcast-campaign.tsx, /src/pages/dashboard/user-profile.tsx, /src/pages/dashboard/product.tsx, /src/pages/dashboard/CreateProduct.tsx, /src/pages/dashboard/EditProduct.tsx, /src/pages/dashboard/customer.tsx, /src/pages/dashboard/order.tsx, /src/pages/dashboard/create-new-template.tsx, /src/pages/dashboard/customization.tsx, /src/components/customer/customer-order.tsx, /src/pages/dashboard/deals.tsx, /src/pages/dashboard/customization-options.tsx, /src/pages/ApplyCusomization.tsx, /src/pages/dashboard/advertisement.tsx, /src/pages/ApplyDeals.tsx, /src/pages/dashboard/Payment.tsx, /src/pages/dashboard/manage-branches.tsx, /src/pages/dashboard/manage-QRcode.tsx, /src/pages/dashboard/superadmin-users.tsx, /src/pages/dashboard/merchants/details.tsx, /src/pages/dashboard/settlements.tsx, /src/auth/context/jwt/auth-provider.tsx, /src/layouts/dashboard/header.tsx, /src/sections/merchants/view/merchants-list-view.tsx, /src/sections/overview/analytics/view/super-admin-analytics-view.tsx, /src/sections/merchants/merchant-onboard-form.tsx, /src/sections/commissions/view/commissions-view.tsx, /src/sections/staff/view/staff-list-view.tsx, /src/sections/catalogue/view/catalogue-list-view.tsx, /src/sections/merchant/view/merchant-profile-view.tsx, /src/sections/ai-bot/view/ai-bot-view.tsx, /src/sections/merchants/merchant-details-drawer.tsx, /src/sections/ai-playbooks/view/ai-playbooks-view.tsx, /src/sections/staff/staff-new-dialog.tsx, /src/sections/chat/view/chat-view.tsx, /src/sections/chat/chat-message-input.tsx, /src/sections/chat/chat-nav-item.tsx, /src/sections/super-admin-settings/settings-ai.tsx, /src/sections/account/account-general.tsx, /src/sections/super-admin-settings/settings-general.tsx, /src/layouts/dashboard/nav-vertical.tsx, /src/pages/dashboard/create-new-campaign.tsx, /src/pages/components/template-mockup.tsx, /src/sections/overview/app/view/overview-app-view.tsx, /src/sections/overview/analytics/view/overview-analytics-view.tsx, /src/sections/catalogue/catalogue-new-edit-dialog.tsx, /src/layouts/_common/account-popover.tsx, /src/sections/chat/chat-message-item.tsx, /src/sections/chat/chat-nav.tsx, /src/sections/chat/chat-room.tsx, /src/sections/chat/chat-message-list.tsx, /src/sections/chat/chat-message-item-type.tsx
+10:06:13 PM [vite] hmr update /src/sections/ai-playbooks/view/ai-playbooks-view.tsx, /src/index.css
+9:05:00 PM [vite] hmr update /src/components/products/product-table.tsx, /src/index.css
+9:05:40 PM [vite] hmr update /src/components/snackbar/snackbar-provider.tsx, /src/index.css
+9:06:10 PM [vite] page reload dist/index.html
+9:46:03 PM [vite] hmr update /src/index.css, /src/sections/chat/view/chat-view.tsx, /src/sections/chat/chat-message-input.tsx, /src/sections/chat/chat-nav-item.tsx
+9:46:12 PM [vite] page reload src/types/chat.ts
+9:46:20 PM [vite] hmr update /src/sections/chat/view/chat-view.tsx, /src/index.css
+9:46:28 PM [vite] hmr update /src/sections/chat/view/chat-view.tsx, /src/index.css
+9:46:38 PM [vite] hmr update /src/sections/chat/chat-header-detail.tsx, /src/index.css
+10:19:14 PM [vite] hmr update /src/sections/merchant/view/merchant-profile-view.tsx, /src/index.css
+10:21:48 PM [vite] hmr update /src/layouts/dashboard/config-navigation.tsx, /src/index.css
+10:21:48 PM [vite] hmr invalidate /src/layouts/dashboard/config-navigation.tsx Could not Fast Refresh. Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+10:21:48 PM [vite] hmr update /src/index.css, /src/layouts/dashboard/layout.tsx, /src/layouts/dashboard/nav-mini.tsx, /src/layouts/dashboard/nav-vertical.tsx, /src/layouts/dashboard/nav-horizontal.tsx, /src/layouts/_common/searchbar/searchbar.tsx
+10:21:58 PM [vite] page reload src/routes/sections/dashboard.tsx
+10:22:08 PM [vite] hmr update /src/routes/sections/index.tsx, /src/index.css
+10:22:33 PM [vite] hmr update /src/layouts/_common/account-popover.tsx, /src/index.css
+10:23:01 PM [vite] hmr update /src/layouts/dashboard/config-navigation.tsx, /src/index.css
+10:23:01 PM [vite] hmr invalidate /src/layouts/dashboard/config-navigation.tsx Could not Fast Refresh. Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+10:23:01 PM [vite] hmr update /src/index.css, /src/layouts/dashboard/layout.tsx, /src/layouts/dashboard/nav-mini.tsx, /src/layouts/dashboard/nav-vertical.tsx, /src/layouts/dashboard/nav-horizontal.tsx, /src/layouts/_common/searchbar/searchbar.tsx
+10:23:13 PM [vite] hmr update /src/layouts/dashboard/config-navigation.tsx, /src/index.css
+10:23:13 PM [vite] hmr invalidate /src/layouts/dashboard/config-navigation.tsx Could not Fast Refresh. Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+10:23:13 PM [vite] hmr update /src/index.css, /src/layouts/dashboard/layout.tsx, /src/layouts/dashboard/nav-mini.tsx, /src/layouts/dashboard/nav-vertical.tsx, /src/layouts/dashboard/nav-horizontal.tsx, /src/layouts/_common/searchbar/searchbar.tsx
+12:44:44 PM [vite] hmr update /src/sections/chat/chat-nav-item.tsx, /src/index.css
+12:50:15 PM [vite] hmr update /src/sections/chat/chat-nav-item.tsx, /src/index.css

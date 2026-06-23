@@ -1,0 +1,4 @@
+Name,Description,Price,Currency,ImageUrls,Product_Category,Product_Subcategory,Preference,Quantity,Discount_Percentage,Discount_Price,CGST,SGST,OtherTaxes,Speciality,Future_Ref1,Future_Ref2
+Apple iPhone 15,Latest iPhone model,79999,INR,https://example.com/iphone.jpg,Electronics,Smartphones,Veg,10,10,71999.1,9,9,0,Chef Special,,
+Samsung Galaxy S24,New Galaxy phone,69999,INR,https://example.com/galaxy.jpg,Electronics,Smartphones,Non-Veg,15,5,66499.05,9,9,0,Best Seller,,
+"LG OLED TV 55""",Smart OLED TV,129999,INR,https://example.com/lg-oled.jpg,Electronics,TVs,Veg,5,15,110499.15,18,18,0,New Launch,,

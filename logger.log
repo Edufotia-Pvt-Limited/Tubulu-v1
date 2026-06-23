@@ -1,0 +1,5 @@
+{"level":"error","message":"Global AI Failed:","timestamp":"2026-06-02 01:34:08 PM +0530"}
+{"level":"info","message":"The OTP message sent successfully to 9844982389","timestamp":"2026-06-08 10:28:44 PM +0530"}
+{"level":"info","message":"{\"req_id\":\"444301902844264273872500\",\"req_time\":\"2026-06-08 22:28:44.266\",\"status\":{\"reason\":\"Application Accepted\",\"code\":\"200\",\"info\":\"ACCEPTED\"}}","timestamp":"2026-06-08 10:28:44 PM +0530"}
+{"level":"info","message":"The OTP message sent successfully to 9844982389","timestamp":"2026-06-08 10:28:44 PM +0530"}
+{"level":"info","message":"{\"req_id\":\"446301902844289509502700\",\"req_time\":\"2026-06-08 22:28:44.291\",\"status\":{\"reason\":\"Application Accepted\",\"code\":\"200\",\"info\":\"ACCEPTED\"}}","timestamp":"2026-06-08 10:28:44 PM +0530"}

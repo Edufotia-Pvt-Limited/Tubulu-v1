@@ -1,0 +1,96 @@
+
+> @minimal-kit/vite-ts@5.3.0 dev
+> vite
+
+Port 5173 is in use, trying another one...
+
+  VITE v4.4.4  ready in 679 ms
+
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: use --host to expose
+Error:   Failed to scan for dependencies from entries:
+  /Users/pradeep/Desktop/Tubulu/Tubulu-Dashboard-Main-develop/index.html
+
+  [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mExpected closing "div" tag to match opening "Button" tag[0m
+
+    src/components/catalogue/catalogue-table.tsx:183:4:
+[37m      183 │   </[32mdiv[37m>
+          │     [32m~~~[37m
+          ╵     [32mButton[0m
+
+  The opening "Button" tag is here:
+
+    src/components/catalogue/catalogue-table.tsx:139:5:
+[37m      139 │     <[32mButton[37m
+          ╵      [32m~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mExpected closing "TableCell" tag to match opening "div" tag[0m
+
+    src/components/catalogue/catalogue-table.tsx:184:2:
+[37m      184 │ </[32mTableCell[37m>
+          │   [32m~~~~~~~~~[37m
+          ╵   [32mdiv[0m
+
+  The opening "div" tag is here:
+
+    src/components/catalogue/catalogue-table.tsx:89:3:
+[37m      89 │   <[32mdiv[37m
+         ╵    [32m~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mExpected closing "TableRow" tag to match opening "TableCell" tag[0m
+
+    src/components/catalogue/catalogue-table.tsx:186:14:
+[37m      186 │             </[32mTableRow[37m>
+          │               [32m~~~~~~~~[37m
+          ╵               [32mTableCell[0m
+
+  The opening "TableCell" tag is here:
+
+    src/components/catalogue/catalogue-table.tsx:88:13:
+[37m      88 │             <[32mTableCell[37m align="center">
+         ╵              [32m~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mThe character "}" is not valid inside a JSX element[0m
+
+    src/components/catalogue/catalogue-table.tsx:187:12:
+[37m      187 │           ))[32m}[37m
+          │             [32m^[37m
+          ╵             [32m{'}'}[0m
+
+  Did you mean to escape it as "{'}'}" instead?
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mExpected closing "TableBody" tag to match opening "TableRow" tag[0m
+
+    src/components/catalogue/catalogue-table.tsx:188:10:
+[37m      188 │         </[32mTableBody[37m>
+          │           [32m~~~~~~~~~[37m
+          ╵           [32mTableRow[0m
+
+  The opening "TableRow" tag is here:
+
+    src/components/catalogue/catalogue-table.tsx:56:13:
+[37m      56 │             <[32mTableRow[37m key={catalog.id}>
+         ╵              [32m~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mUnterminated regular expression[0m
+
+    src/components/catalogue/catalogue-table.tsx:189:14:
+[37m      189 │       </Table>[32m[37m
+          ╵               [32m^[0m
+
+
+    at failureErrorWithLog (/Users/pradeep/Desktop/Tubulu/Tubulu-Dashboard-Main-develop/node_modules/esbuild/lib/main.js:1646:15)
+    at /Users/pradeep/Desktop/Tubulu/Tubulu-Dashboard-Main-develop/node_modules/esbuild/lib/main.js:1058:25
+    at runOnEndCallbacks (/Users/pradeep/Desktop/Tubulu/Tubulu-Dashboard-Main-develop/node_modules/esbuild/lib/main.js:1481:45)
+    at buildResponseToResult (/Users/pradeep/Desktop/Tubulu/Tubulu-Dashboard-Main-develop/node_modules/esbuild/lib/main.js:1056:7)
+    at /Users/pradeep/Desktop/Tubulu/Tubulu-Dashboard-Main-develop/node_modules/esbuild/lib/main.js:1068:9
+    at new Promise (<anonymous>)
+    at requestCallbacks.on-end (/Users/pradeep/Desktop/Tubulu/Tubulu-Dashboard-Main-develop/node_modules/esbuild/lib/main.js:1067:54)
+    at handleRequest (/Users/pradeep/Desktop/Tubulu/Tubulu-Dashboard-Main-develop/node_modules/esbuild/lib/main.js:729:19)
+    at handleIncomingPacket (/Users/pradeep/Desktop/Tubulu/Tubulu-Dashboard-Main-develop/node_modules/esbuild/lib/main.js:755:7)
+    at Socket.readFromStdout (/Users/pradeep/Desktop/Tubulu/Tubulu-Dashboard-Main-develop/node_modules/esbuild/lib/main.js:679:7)
