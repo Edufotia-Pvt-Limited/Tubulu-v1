@@ -232,8 +232,7 @@ export default function MerchantOnboardForm() {
     m => m.phoneNumber === formData.phoneNumber || m.phoneNumber === `${formData.countryCode}${formData.phoneNumber}` || m.phoneNumber === `${formData.countryCode} ${formData.phoneNumber}`
   );
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const submitForm = async (isPending: boolean) => {
     if (isDuplicatePhone) {
       setError('This merchant number already exists.');
       return;
@@ -247,6 +246,9 @@ export default function MerchantOnboardForm() {
         ...formData,
         phoneNumber: `${formData.countryCode}${formData.phoneNumber}`,
         parentId: parentId || undefined,
+        isApproved: isPending ? false : true,
+        isOnboarded: isPending ? false : true,
+        isActive: true, // Show on the Shops page
         address: {
           addressLine: formData.addressLine,
           city: formData.city,
@@ -275,6 +277,15 @@ export default function MerchantOnboardForm() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await submitForm(false);
+  };
+
+  const handleSavePending = async () => {
+    await submitForm(true);
   };
 
   return (
@@ -667,17 +678,33 @@ export default function MerchantOnboardForm() {
                 <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
                   Please ensure all details are correct before submitting. Merchants will be notified via phone.
                 </Typography>
-                <Button
-                  fullWidth
-                  type="submit"
-                  variant="contained"
-                  size="large"
-                  color="primary"
-                  disabled={loading}
-                  startIcon={loading ? <CircularProgress size={20} /> : <Iconify icon={parentId ? "solar:branching-paths-bold" : "eva:person-add-fill"} />}
-                >
-                  {loading ? 'Processing...' : (parentId ? 'Add Branch' : 'Finish Onboarding')}
-                </Button>
+                <Stack spacing={2}>
+                  {!parentId && (
+                    <Button
+                      fullWidth
+                      type="button"
+                      variant="outlined"
+                      size="large"
+                      color="warning"
+                      disabled={loading}
+                      onClick={handleSavePending}
+                      startIcon={loading ? <CircularProgress size={20} /> : <Iconify icon="solar:document-text-bold" />}
+                    >
+                      Save as Pending
+                    </Button>
+                  )}
+                  <Button
+                    fullWidth
+                    type="submit"
+                    variant="contained"
+                    size="large"
+                    color="primary"
+                    disabled={loading}
+                    startIcon={loading ? <CircularProgress size={20} /> : <Iconify icon={parentId ? "solar:branching-paths-bold" : "eva:person-add-fill"} />}
+                  >
+                    {loading ? 'Processing...' : (parentId ? 'Add Branch' : 'Finish Onboarding')}
+                  </Button>
+                </Stack>
               </Card>
             </Stack>
           </Grid>

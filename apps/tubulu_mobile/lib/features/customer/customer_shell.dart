@@ -362,16 +362,19 @@ class _AccountSheet extends ConsumerWidget {
               subtitle: const Text('Share app with your friends to earn rewards'),
               onTap: () async {
                 Navigator.pop(context);
+                final androidLink = 'https://play.google.com/store/apps/details?id=com.tubulu.tubulu_mobile';
+                final iosLink = 'https://apps.apple.com/app/tubulu/id6470000000'; // Replace with actual iOS App Store ID once live
+                
                 try {
                   final dio = parentRef.read(dioProvider);
                   final response = await dio.get('/user/wallet');
                   final referralCode = response.data['data']['referralCode'] ?? 'TUBULU';
                   await Share.share(
-                    'Join me on Tubulu! Use my referral code: $referralCode to get 100 points on sign up. Download the app today: http://34.135.72.28',
+                    'Join me on Tubulu! Use my referral code: $referralCode to get 100 points on sign up. Download the app today:\nPlay Store: $androidLink\nApp Store: $iosLink',
                   );
                 } catch (e) {
                   await Share.share(
-                    'Join me on Tubulu! Recommend your favorite local shops to me and earn rewards. Download the app today: http://34.135.72.28',
+                    'Join me on Tubulu! Recommend your favorite local shops to me and earn rewards. Download the app today:\nPlay Store: $androidLink\nApp Store: $iosLink',
                   );
                 }
                 if (parentContext.mounted) {
@@ -1107,43 +1110,7 @@ Future<void> _pickAndUploadProfileImage(BuildContext context, WidgetRef ref) asy
                                 final hasRecs = recs.isNotEmpty;
                                 final isSelected = selectedNames.contains(c['name']);
 
-                                return ListTile(
-                                  leading: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Checkbox(
-                                        value: isSelected,
-                                        activeColor: Colors.purple,
-                                        onChanged: (bool? val) {
-                                          setState(() {
-                                            if (val == true) {
-                                              selectedNames.add(c['name'].toString());
-                                            } else {
-                                              selectedNames.remove(c['name'].toString());
-                                            }
-                                          });
-                                        },
-                                      ),
-                                      CircleAvatar(
-                                        backgroundColor: hasRecs ? Colors.purple.shade100 : Colors.grey.shade200,
-                                        child: Text(
-                                          c['name'].isNotEmpty ? c['name'][0].toUpperCase() : '?',
-                                          style: TextStyle(color: hasRecs ? Colors.purple : Colors.grey.shade700),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  title: Text(c['name'], style: TextStyle(fontWeight: hasRecs ? FontWeight.bold : FontWeight.normal)),
-                                  subtitle: Text(
-                                    hasRecs 
-                                        ? '${c['phone']} • ${recs.length} recommendation(s)' 
-                                        : '${c['phone']} • No recommendations yet',
-                                    style: TextStyle(color: hasRecs ? Colors.purple : Colors.grey),
-                                  ),
-                                  trailing: Icon(
-                                    hasRecs ? Icons.star_rate_rounded : Icons.add_comment_outlined, 
-                                    color: hasRecs ? Colors.amber : Colors.grey,
-                                  ),
+                                return InkWell(
                                   onTap: () {
                                     setState(() {
                                       if (isSelected) {
@@ -1153,6 +1120,87 @@ Future<void> _pickAndUploadProfileImage(BuildContext context, WidgetRef ref) asy
                                       }
                                     });
                                   },
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                                    child: Row(
+                                      children: [
+                                        Checkbox(
+                                          value: isSelected,
+                                          activeColor: Colors.purple,
+                                          onChanged: (bool? val) {
+                                            setState(() {
+                                              if (val == true) {
+                                                selectedNames.add(c['name'].toString());
+                                              } else {
+                                                selectedNames.remove(c['name'].toString());
+                                              }
+                                            });
+                                          },
+                                        ),
+                                        const SizedBox(width: 4),
+                                        CircleAvatar(
+                                          radius: 18,
+                                          backgroundColor: hasRecs ? Colors.purple.shade100 : Colors.grey.shade200,
+                                          child: Text(
+                                            c['name'].isNotEmpty ? c['name'][0].toUpperCase() : '?',
+                                            style: TextStyle(
+                                              color: hasRecs ? Colors.purple : Colors.grey.shade700,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 12),
+                                        Expanded(
+                                          child: Text.rich(
+                                            TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: c['name'],
+                                                  style: TextStyle(
+                                                    fontWeight: hasRecs ? FontWeight.bold : FontWeight.normal,
+                                                    color: Colors.black87,
+                                                    fontSize: 14,
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                  text: ' • ${c['phone']}',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.normal,
+                                                    color: Colors.grey.shade600,
+                                                    fontSize: 12,
+                                                  ),
+                                                ),
+                                                if (hasRecs)
+                                                  TextSpan(
+                                                    text: ' • ${recs.length} recs',
+                                                    style: const TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.purple,
+                                                      fontSize: 12,
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 8),
+                                        IconButton(
+                                          icon: Icon(
+                                            hasRecs ? Icons.star_rate_rounded : Icons.add_comment_outlined, 
+                                            color: hasRecs ? Colors.amber : Colors.grey,
+                                            size: 20,
+                                          ),
+                                          onPressed: () {
+                                            if (hasRecs) {
+                                              _showRecommendationsList(context, c['name'], recs);
+                                            } else {
+                                              _showInviteDialog(context, c['name'], c['phone']);
+                                            }
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 );
                               },
                             );
@@ -1263,18 +1311,13 @@ Future<void> _pickAndUploadProfileImage(BuildContext context, WidgetRef ref) asy
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               ),
-              onPressed: () async {
+               onPressed: () async {
                 Navigator.pop(ctx);
-                final uri = Uri.parse('sms:$phone?body=${Uri.encodeComponent("Hey $name, join me on Tubulu! Recommend your favorite local shops to me.")}');
-                if (await canLaunchUrl(uri)) {
-                  await launchUrl(uri);
-                } else {
-                  if (context.mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Could not open messaging for $phone')),
-                    );
-                  }
-                }
+                final androidLink = 'https://play.google.com/store/apps/details?id=com.tubulu.tubulu_mobile';
+                final iosLink = 'https://apps.apple.com/app/tubulu/id6470000000'; // Replace with actual iOS App Store ID once live
+                await Share.share(
+                  "Hey $name, join me on Tubulu! Recommend your favorite local shops to me. Download the app today:\nPlay Store: $androidLink\nApp Store: $iosLink",
+                );
               },
               child: const Text('Send Invite'),
             ),

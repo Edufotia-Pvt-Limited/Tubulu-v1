@@ -8,7 +8,7 @@ import '../auth/auth_provider.dart';
 
 const _stagingUrl = String.fromEnvironment(
   'STAGING_URL', 
-  defaultValue: 'http://34.135.72.28:3008/api/v1'
+  defaultValue: 'http://34.135.72.28/api/v1'
 );
 
 class ApiConfig {
