@@ -19,7 +19,7 @@ const {
 const { sendIntegrationOtp } = require("../Utils/SMSUtils");
 const moment = require('moment');
 const { uploadBase64ToAws } = require('../Utils/FileHelper');
-const { Integration, Cart, Deal, User, IntegrationFB, IntegrationGrocery, IntegrationRetail, Catalogue, Product, sequelize } = require("../Utils/Postgres");
+const { Integration, Cart, Deal, User, IntegrationFB, IntegrationGrocery, IntegrationRetail, Catalogue, Product, State, City, sequelize } = require("../Utils/Postgres");
 const { runAutomatedKYC } = require('../Services/KYC.service');
 const { fixUrl } = require('../Utils/UrlHelper');
 const { getGeolocation } = require('../Utils/map');
@@ -680,6 +680,9 @@ async function superAdminCreateIntegration(req, res, next) {
             pstnDID,
             documents, // Array of { base64, mimeType, fileName, type }
             parentId,
+            isApproved,
+            isOnboarded,
+            isActive,
             // Vertical specific fields:
             prepTimeMinutes,
             cuisineType,
@@ -762,6 +765,31 @@ async function superAdminCreateIntegration(req, res, next) {
             }
         }
 
+        // If stateId or cityId is not resolved but names are provided, look them up in DB by name
+        let resolvedStateId = stateId || address?.stateId || null;
+        let resolvedCityId = cityId || address?.cityId || null;
+
+        if (!resolvedStateId && address?.state) {
+            const stateRec = await State.findOne({
+                where: { name: { [Op.iLike]: address.state.trim() } }
+            });
+            if (stateRec) {
+                resolvedStateId = stateRec.id;
+            }
+        }
+
+        if (!resolvedCityId && address?.city) {
+            const cityRec = await City.findOne({
+                where: { 
+                    name: { [Op.iLike]: address.city.trim() },
+                    ...(resolvedStateId ? { stateId: resolvedStateId } : {})
+                }
+            });
+            if (cityRec) {
+                resolvedCityId = cityRec.id;
+            }
+        }
+
         const finalCategory = category || parentBrand?.category || 'General';
         const normalizedCategory = finalCategory.toUpperCase();
         let verticalType = 'AI';
@@ -818,15 +846,16 @@ async function superAdminCreateIntegration(req, res, next) {
             shopEstablishmentNumber: shopEstablishmentNumber || parentBrand?.shopEstablishmentNumber || null,
             pstnDID,
             documents: uploadedDocs.length > 0 ? uploadedDocs : (parentBrand?.documents || []),
-            isApproved: true,
-            isOnboarded: true,
+            isApproved: isApproved !== undefined ? isApproved : true,
+            isOnboarded: isOnboarded !== undefined ? isOnboarded : true,
+            isActive: isActive !== undefined ? isActive : true,
             isDocumentsUploaded: uploadedDocs.length > 0 || (parentBrand?.documents?.length > 0),
             isTubuluAppSetupDone: true,
             apiAuthKey: generateUUID(),
             parentId: parentId || (req.user.role === 'regional_partner' ? req.user.id : null),
             countryId: countryId || address?.countryId || null,
-            stateId: stateId || address?.stateId || null,
-            cityId: cityId || address?.cityId || null
+            stateId: resolvedStateId,
+            cityId: resolvedCityId
         }, { transaction });
 
         // Save vertical child records

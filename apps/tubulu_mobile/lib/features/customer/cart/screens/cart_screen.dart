@@ -409,11 +409,30 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                   onPressed: () => ref.read(cartProvider.notifier).updateQuantity(item.id, item.quantity - 1),
                 ),
                 Text('${item.quantity}', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                IconButton(
+                 IconButton(
                   icon: const Icon(Icons.add_circle_outline, color: Colors.blue),
                   onPressed: () {
+                    final cartItems = ref.read(cartProvider);
+                    final totalCartQty = cartItems.fold<int>(0, (sum, i) => sum + i.quantity);
                     final newQty = item.quantity + 1;
-                    if (newQty > item.stock) {
+                    
+                    if (totalCartQty >= 5) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('You can only select up to 5 units per order.'),
+                          backgroundColor: Colors.orange,
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
+                    } else if (newQty > 5) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('You can only select up to 5 units of this item at a time.'),
+                          backgroundColor: Colors.orange,
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
+                    } else if (newQty > item.stock) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text('Only ${item.stock} units in stock.'),

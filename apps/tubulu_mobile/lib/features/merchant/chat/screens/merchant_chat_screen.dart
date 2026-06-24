@@ -365,37 +365,36 @@ class _MerchantChatScreenState extends ConsumerState<MerchantChatScreen> {
         child: Row(
           children: [
             Expanded(
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                decoration: BoxDecoration(
-                  color: theme.scaffoldBackgroundColor,
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                child: CallbackShortcuts(
-                  bindings: {
-                    const SingleActivator(LogicalKeyboardKey.keyV, control: true): () => _handlePaste(),
-                    const SingleActivator(LogicalKeyboardKey.keyV, meta: true): () => _handlePaste(),
-                  },
-                  child: TextField(
-                    controller: _messageController,
-                    textCapitalization: TextCapitalization.sentences,
-                    minLines: 1,
-                    maxLines: null,
-                    enableInteractiveSelection: true,
-                    selectionControls: MaterialTextSelectionControls(),
-                    style: TextStyle(color: theme.textTheme.bodyLarge?.color),
-                    decoration: InputDecoration(
-                      hintText: 'Type a message...',
-                      hintStyle: TextStyle(color: theme.hintColor),
-                      border: InputBorder.none,
-                      isDense: true,
-                      contentPadding: const EdgeInsets.symmetric(vertical: 12),
-                      suffixIcon: IconButton(
-                        icon: Icon(Icons.paste_rounded, size: 20, color: theme.hintColor),
-                        onPressed: _handlePaste,
+              child: GestureDetector(
+                onLongPress: _handlePaste,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                    color: theme.scaffoldBackgroundColor,
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  child: CallbackShortcuts(
+                    bindings: {
+                      const SingleActivator(LogicalKeyboardKey.keyV, control: true): () => _handlePaste(),
+                      const SingleActivator(LogicalKeyboardKey.keyV, meta: true): () => _handlePaste(),
+                    },
+                    child: TextField(
+                      controller: _messageController,
+                      textCapitalization: TextCapitalization.sentences,
+                      minLines: 1,
+                      maxLines: null,
+                      enableInteractiveSelection: true,
+                      selectionControls: MaterialTextSelectionControls(),
+                      style: TextStyle(color: theme.textTheme.bodyLarge?.color),
+                      decoration: InputDecoration(
+                        hintText: 'Type a message...',
+                        hintStyle: TextStyle(color: theme.hintColor),
+                        border: InputBorder.none,
+                        isDense: true,
+                        contentPadding: const EdgeInsets.symmetric(vertical: 12),
                       ),
+                      onSubmitted: (_) => _handleSend(),
                     ),
-                    onSubmitted: (_) => _handleSend(),
                   ),
                 ),
               ),
