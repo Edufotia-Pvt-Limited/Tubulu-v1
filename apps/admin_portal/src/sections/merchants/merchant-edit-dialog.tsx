@@ -107,6 +107,7 @@ export default function MerchantEditDialog({ open, onClose, merchant, allMerchan
       estimatedDeliveryTime: merchant.estimatedDeliveryTime || 30,
       latitude: merchant.latitude || '',
       longitude: merchant.longitude || '',
+      pincode: merchant.pincode || '',
       loginPin: '',
       pidge: merchant.pidge || {
         enabled: false,
@@ -356,6 +357,13 @@ export default function MerchantEditDialog({ open, onClose, merchant, allMerchan
                 label="Address Line"
                 value={formData.addressLine || ''}
                 onChange={(e) => handleChange('addressLine', e.target.value)}
+              />
+
+              <TextField
+                fullWidth
+                label="PIN Code"
+                value={formData.pincode || ''}
+                onChange={(e) => handleChange('pincode', e.target.value)}
               />
 
               <TextField

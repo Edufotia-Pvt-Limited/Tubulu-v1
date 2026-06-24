@@ -51,9 +51,17 @@ class CartNotifier extends StateNotifier<List<CartItem>> {
   CartNotifier() : super([]);
 
   void addItem(CartItem item) {
+    final totalQuantity = state.fold(0, (sum, i) => sum + i.quantity);
+    if (totalQuantity >= 5) {
+      return; // Limit total order quantity to 5
+    }
+
     final existingIndex = state.indexWhere((i) => i.id == item.id);
     if (existingIndex != -1) {
       final newQuantity = state[existingIndex].quantity + 1;
+      if (newQuantity > 5) {
+        return; // Limit individual item quantity to 5
+      }
       if (newQuantity > state[existingIndex].stock) {
         return; // Exceeds available stock
       }
@@ -65,7 +73,10 @@ class CartNotifier extends StateNotifier<List<CartItem>> {
             state[i]
       ];
     } else {
-      final quantityToAdd = item.quantity > item.stock ? item.stock : item.quantity;
+      var quantityToAdd = item.quantity > item.stock ? item.stock : item.quantity;
+      if (totalQuantity + quantityToAdd > 5) {
+        quantityToAdd = 5 - totalQuantity;
+      }
       if (quantityToAdd > 0) {
         state = [...state, item.copyWith(quantity: quantityToAdd)];
       }
@@ -81,10 +92,20 @@ class CartNotifier extends StateNotifier<List<CartItem>> {
       removeItem(itemId);
       return;
     }
+    final otherItemsQuantity = state.fold(0, (sum, i) => i.id == itemId ? sum : sum + i.quantity);
+    
+    var finalQuantity = quantity;
+    if (otherItemsQuantity + finalQuantity > 5) {
+      finalQuantity = 5 - otherItemsQuantity;
+    }
+    if (finalQuantity > 5) {
+      finalQuantity = 5;
+    }
+    
     state = [
       for (final item in state)
         if (item.id == itemId)
-          item.copyWith(quantity: quantity > item.stock ? item.stock : quantity)
+          item.copyWith(quantity: finalQuantity > item.stock ? item.stock : finalQuantity)
         else
           item
     ];

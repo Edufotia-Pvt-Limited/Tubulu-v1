@@ -282,13 +282,32 @@ class _ProductDetailsScreenState extends ConsumerState<ProductDetailsScreen> {
                                  const SizedBox(width: 16),
                                  Text('${itemInCart.quantity}', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
                                  const SizedBox(width: 16),
-                                  GestureDetector(
+                                 GestureDetector(
                                    onTap: isUnavailable
                                        ? null
                                        : () {
+                                           final cartItems = ref.read(cartProvider);
+                                           final totalCartQty = cartItems.fold<int>(0, (sum, i) => sum + i.quantity);
                                            final newQty = itemInCart.quantity + 1;
                                            final availableStock = int.tryParse(product['quantity']?.toString() ?? '999') ?? 999;
-                                           if (newQty > availableStock) {
+                                           
+                                           if (totalCartQty >= 5) {
+                                             ScaffoldMessenger.of(context).showSnackBar(
+                                               const SnackBar(
+                                                 content: Text('You can only select up to 5 units per order.'),
+                                                 backgroundColor: Colors.orange,
+                                                 duration: Duration(seconds: 2),
+                                               ),
+                                             );
+                                           } else if (newQty > 5) {
+                                             ScaffoldMessenger.of(context).showSnackBar(
+                                               const SnackBar(
+                                                 content: Text('You can only select up to 5 units of this item at a time.'),
+                                                 backgroundColor: Colors.orange,
+                                                 duration: Duration(seconds: 2),
+                                               ),
+                                             );
+                                           } else if (newQty > availableStock) {
                                              ScaffoldMessenger.of(context).showSnackBar(
                                                SnackBar(
                                                  content: Text('Only $availableStock units in stock.'),
