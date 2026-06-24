@@ -417,23 +417,12 @@ class _IndustryMerchantsScreenState extends ConsumerState<IndustryMerchantsScree
   }
 
   Widget _buildFilterBar() {
-    final activeFiltersCount = (_onlyActive ? 1 : 0) + (_onlyWithDelivery ? 1 : 0);
     return SizedBox(
       height: 48,
       child: ListView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         children: [
-          GestureDetector(
-            onTap: _showFilterBottomSheet,
-            child: _buildFilterItem(
-              label: activeFiltersCount > 0 ? 'Filter ($activeFiltersCount)' : 'Filter',
-              icon: Icons.tune_rounded,
-              color: activeFiltersCount > 0 ? AppTheme.primaryColor.withOpacity(0.08) : Colors.white,
-              borderColor: activeFiltersCount > 0 ? AppTheme.primaryColor : Colors.grey.shade300,
-            ),
-          ),
-          const SizedBox(width: 8),
           GestureDetector(
             onTap: _showSortBottomSheet,
             child: _buildFilterItem(

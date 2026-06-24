@@ -8576,3 +8576,7 @@ WARNING      | adb command '/Users/pradeep/Library/Android/sdk/platform-tools/ad
 This adb server's $ADB_VENDOR_KEYS is not set
 Try 'adb kill-server' if that seems wrong.
 Otherwise check for a confirmation dialog on your device.'
+INFO         | Created VkInstance:0x41d9d5c00 for application:'' engine:''.
+INFO         | Destroyed VkInstance:0x41d9d5c00 for application:'' engine:''.
+ERROR        | adb protocol fault (couldn't read status length)
+ERROR        | adb protocol fault (couldn't read status length)

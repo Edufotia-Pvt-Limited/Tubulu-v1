@@ -52,7 +52,7 @@ async function runSetup() {
       phoneNumber: cmPhone,
       password: '2123',
       role: 'city_manager',
-      firstName: 'Mysore',
+      firstName: 'Mysuru',
       lastName: 'City',
       scopedStateId: karnatakaStateId,
       scopedCityId: mysuruCityId,
